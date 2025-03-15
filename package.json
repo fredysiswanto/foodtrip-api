@@ -26,6 +26,7 @@
 	},
 	"homepage": "https://github.com/polekstulod/foodtrip-api#readme",
 	"dependencies": {
+		"@sequelize/sqlite3": "7.0.0-alpha.45",
 		"bcrypt": "^5.0.1",
 		"cors": "^2.8.5",
 		"dotenv": "^16.0.1",

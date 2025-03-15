@@ -2,23 +2,39 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('RestoCategories', {
-      id: {
+      restocatg_id: {
+        type: Sequelize.CHAR(36),
         allowNull: false,
-        autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
       },
       restocatg_name: {
-        type: Sequelize.STRING
-      },
-      createdAt: {
+        type: Sequelize.STRING(255),
         allowNull: false,
-        type: Sequelize.DATE
       },
-      updatedAt: {
+      created_by: {
+        type: Sequelize.CHAR(36),
+        allowNull: true,
+      },
+      updated_by: {
+        type: Sequelize.CHAR(36),
+        allowNull: true,
+      },
+      deleted_by: {
+        type: Sequelize.CHAR(36),
+        allowNull: true,
+      },
+      date_created: {
+        type: Sequelize.DATE,
         allowNull: false,
-        type: Sequelize.DATE
-      }
+      },
+      date_updated: {
+        type: Sequelize.DATE,
+        allowNull: false,
+      },
+      date_deleted: {
+        type: Sequelize.DATE,
+        allowNull: true,
+      },
     });
   },
   async down(queryInterface, Sequelize) {
