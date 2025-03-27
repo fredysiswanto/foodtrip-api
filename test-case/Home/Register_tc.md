@@ -1,6 +1,6 @@
 # Test Cases for Register API
 
-## Register Customer ##
+## Register Customer 
 **Endpoint:** `POST {{base_url}}/api/v1/home/register/customer`
 
 No | Test Case Description | Method | Request Body | Expected Response | Status Code
@@ -16,7 +16,7 @@ No | Test Case Description | Method | Request Body | Expected Response | Status 
 9 | Register with a password less than 6 characters | POST | { "password": "123", "first_name": "John", "last_name": "Doe", "email_address": "john.doe@example.com", "phone_number": "08123456789", "gender": "Male", "user_type": "Customer" } | { "error": "Password must be at least 6 characters" } | 400 Bad Request
 10 | Register with invalid gender value | POST | { "password": "password", "first_name": "John", "last_name": "Doe", "email_address": "john.doe@example.com", "phone_number": "08123456789", "gender": "InvalidGender", "user_type": "Customer" } | { "error": "Invalid gender value" } | 400 Bad Request
 
-## Register Admin Resto ##
+## Register Admin Resto 
 **Endpoint:** `POST {{base_url}}/api/v1/home/register/resto-admin`
 
 No | Test Case Description | Method | Request Body | Expected Response | Status Code
@@ -38,7 +38,7 @@ No | Test Case Description | Method | Request Body | Expected Response | Status 
 15 | Register with extremely long field values | POST | { "password": "verylongpassword", "first_name": "VeryLongFirstName", "last_name": "VeryLongLastName", "email_address": "verylongemail@example.com", "phone_number": "08123456789012345", "restaurant_id": "123456789012345" } | { "error": "Input exceeds maximum length" } | 400 Bad Request
 
 
-## Register Admin ##
+## Register Admin 
 **Endpoint:** `POST {{base_url}}/api/v1/home/register/admin`
 
 | No | Test Case Description | Method | Request Body | Expected Response | Status Code |
@@ -57,7 +57,7 @@ No | Test Case Description | Method | Request Body | Expected Response | Status 
 | 12 | Register when admin registration is disabled | POST | `{ "name": "Admin User", "email": "admin@example.com", "password": "SecurePass123", "confirm_password": "SecurePass123" }` | `{ "error": "Admin registration is disabled" }` | 403 Forbidden |
 
 
-## Register Restaurant ##
+## Register Restaurant 
 **Endpoint:** `POST {{base_url}}/api/v1/home/register/restaurant`
 
 No | Test Case Description | Method | Request Body | Expected Response | Status Code
