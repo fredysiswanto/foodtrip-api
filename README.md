@@ -4,6 +4,11 @@
 
 This project is for fullfillment of requirements in subject "Application Development and Emerging Technologies". This API is used by the [FoodTrip 😋 - Food Ordering Web App🍕](https://github.com/micahvllz/foodtrip-web).
 
+## [Origin Repo](https://github.com/polekstulod/foodtrip-api) 
+
+## Adjustment from me
+- this repo so much help me learning testing api in few years ago and for now i am try to maintenance this repo to help another QA learning Api testing
+
 ## Developers
 
 - [Tulod, James Paul Lim](https://github.com/polekstulod) (Project Leader)
@@ -26,7 +31,7 @@ This project is for fullfillment of requirements in subject "Application Develop
 Clone the project
 
 ```bash
-  git clone https://github.com/polekstulod/foodtrip-api
+  git clone https://github.com/fredysiswanto/foodtrip-api
 ```
 
 Go to the project directory
@@ -38,13 +43,13 @@ Go to the project directory
 Install dependencies
 
 ```bash
-  npm install
+  pnpm install
 ```
 
 Start the server
 
 ```bash
-  npm run dev
+  pnpm run dev
 ```
 
 ## Environment Variables
