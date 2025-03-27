@@ -1,11 +1,10 @@
-// * Import required modules
 const express = require('express');
 const dotenv = require('dotenv');
 const db = require('./src/models');
 const jwt = require('jsonwebtoken');
 const path = require('path');
 const cors = require('cors');
-
+const { processMessage } = require('./src/helpers/ollamaHelper');
 // * Get config variables
 dotenv.config();
 
@@ -29,21 +28,14 @@ if (process.env.ALLOW_SYNC === 'true') {
 }
 
 // * Initialize express
-var app = express();
-
+const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json());
-
-app.use(
-  express.urlencoded({
-    extended: true,
-  })
-);
-
-// * Cors
+app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 
+// * Middleware untuk autentikasi JWT
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];
   const token = authHeader && authHeader.split(' ')[1];
@@ -57,7 +49,10 @@ const authenticateToken = (req, res, next) => {
   });
 };
 
+// * Static files
 app.use('/public', express.static(path.join(__dirname + '/public/uploads/')));
+
+// * Routes
 app.use(`${process.env.API_VERSION}/home`, require('./src/routes/home.routes'));
 app.use(`${process.env.API_VERSION}/test`, require('./src/routes/test.routes'));
 app.use(
@@ -76,9 +71,24 @@ app.use(
   require('./src/routes/customer.routes')
 );
 
+app.post('/chat', async (req, res) => {
+  try {
+    const messageData = req.body;
+    if (!messageData.message) {
+      return res.status(400).json({ error: 'Message is required' });
+    }
+
+    const response = await processMessage(messageData);
+    // console.log(response);
+
+    res.json({ responseData: response });
+  } catch (error) {
+    console.error('Error processing chat:', error);
+    res.status(500).json({ error: 'Failed to process chat request' });
+  }
+});
+
+// * Start Server
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
 });
-
-// TODO: Generate Token
-// console.log(require('crypto').randomBytes(64).toString('hex'));

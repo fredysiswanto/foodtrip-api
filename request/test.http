@@ -1,0 +1,25 @@
+### Sample GET request
+GET http://192.168.100.22:3000/api/endpoint
+Content-Type: application/json
+
+### Sample POST request
+POST http://192.168.100.22:11434/api/generate
+Content-Type: application/json
+
+{
+  "model": "llama3.2",
+  "prompt":"Why is the sky blue?",
+  "stream": false
+}
+
+### Sample PUT request
+PUT http://192.168.100.22:3000/api/endpoint/1
+Content-Type: application/json
+
+{
+  "key": "updatedValue"
+}
+
+### Sample DELETE request
+DELETE http://192.168.100.22:3000/api/endpoint/1
+Content-Type: application/json
