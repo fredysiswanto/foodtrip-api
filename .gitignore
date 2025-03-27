@@ -105,3 +105,6 @@ dist
 
 # Vscode settings
 .vscode/ 
+
+db/*
+request/*
