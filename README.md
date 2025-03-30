@@ -6,7 +6,7 @@ This project is for fullfillment of requirements in subject "Application Develop
 
 ## [Origin Repo](https://github.com/polekstulod/foodtrip-api) 
 
-## Adjustment from me
+## noted 
 - this repo so much help me learning testing api in few years ago and for now i am try to maintenance this repo to help another QA learning Api testing
 
 ## Developers
