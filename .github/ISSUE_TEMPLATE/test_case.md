@@ -1,10 +1,9 @@
 ---
 name: Test Case
 about: Create Test Case to help us improve
-title: ''
+title: '[TC]'
 labels: ''
 assignees: ''
-
 ---
 
 **Describe the test case:**
