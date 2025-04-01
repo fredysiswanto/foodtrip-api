@@ -12,7 +12,7 @@ assignees: ''
 A clear and concise description of what you want to add / update.
 
 **Additional context:**
-please add test case following this template. if you wanna add another column or etc fill free to enhance it.
+Please add Testcase following this template. if you wanna add another column, etc feel free to adjust it.
 
 ### Test Cases for Template
 
