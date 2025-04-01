@@ -1,20 +1,14 @@
----
-name: Test Case
-about: Suggest Add, Remove, Update an test case for this project
-title: '[TC]'
-labels: ''
-assignees: ''
-
----
-
-
 **Describe the test case:**
 A clear and concise description of what you want to add / update.
 
 **Additional context:**
-Please add Testcase following this template. if you wanna add another column, etc feel free to adjust it.
+- Please add **test case** following this template. if you wanna add another column, etc feel free to adjust it.
+- Please add  **test case** into folder **test-case**
+- Please push into [branch test-case](https://github.com/fredysiswanto/foodtrip-api/tree/test-case/)
 
-### Test Cases for Template
+![Image](https://github.com/user-attachments/assets/fba3821d-e6c5-499b-8c69-b8ea14edb445)
+
+### Test Cases Template
 
 **Endpoint:** `POST {{base_url}}/api/v1/xxx`  
 
