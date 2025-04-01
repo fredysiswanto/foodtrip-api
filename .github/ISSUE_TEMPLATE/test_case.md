@@ -1,3 +1,12 @@
+---
+name: Test Case
+about: Create Test Case to help us improve
+title: ''
+labels: ''
+assignees: ''
+
+---
+
 **Describe the test case:**
 A clear and concise description of what you want to add / update.
 
