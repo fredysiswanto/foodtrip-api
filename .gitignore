@@ -108,3 +108,4 @@ dist
 
 db/*
 request/*
+~$template.xlsx
