@@ -2,7 +2,7 @@ require('dotenv').config(); // Load env variables dari .env
 
 module.exports = {
   development: {
-    dialect: process.env.DB_DIALECT || 'mysql',
+    dialect: process.env.USE_DB || 'mysql',
     host: process.env.DB_HOST || 'localhost',
     username: process.env.DB_USER || 'root',
     password: process.env.DB_PASS || '',
@@ -16,7 +16,7 @@ module.exports = {
     logging: false
   },
   production: {
-    dialect: process.env.DB_DIALECT || 'mysql',
+    dialect: process.env.USE_DB || 'mysql',
     host: process.env.DB_HOST || 'localhost',
     username: process.env.DB_USER || 'root',
     password: process.env.DB_PASS || '',
