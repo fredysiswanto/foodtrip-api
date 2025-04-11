@@ -57,6 +57,7 @@ Start the server
 To run this project, you will need to add the following environment variables to your .env file
 
 ```env
+USE_DB=mysql 
 PORT  = 3600
 NODE_ENV = development
 ALLOW_SYNC = false
