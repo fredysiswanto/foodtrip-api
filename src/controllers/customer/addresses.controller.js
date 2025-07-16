@@ -2,10 +2,9 @@ const db = require('../../models')
 const {
   dataResponse,
   errResponse,
-  emptyDataResponse,
   checkAuthorization
 } = require('../../helpers/controller.helper')
-const dataTable = require('sequelize-datatables')
+// const dataTable = require('sequelize-datatables')
 
 // * Create address
 exports.createAddress = async (req, res) => {
@@ -90,7 +89,7 @@ exports.updateAddress = async (req, res) => {
     const result = await db.Address.update(req.body, {
       where: { address_id: id }
     })
-    if (result == 1) {
+    if (result === 1) {
       const data = await db.Address.findByPk(id, { include: ['updated'] })
       dataResponse(
         res,
@@ -133,7 +132,7 @@ exports.updateDefaultAddress = async (req, res) => {
       }
     )
 
-    if (result == 1) {
+    if (result === 1) {
       const data = await db.Address.findByPk(id, { include: ['updated'] })
       dataResponse(
         res,

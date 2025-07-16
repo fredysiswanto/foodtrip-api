@@ -1,9 +1,5 @@
 const db = require('../../models')
-const {
-  dataResponse,
-  errResponse,
-  emptyDataResponse
-} = require('../../helpers/controller.helper')
+const { dataResponse, errResponse } = require('../../helpers/controller.helper')
 const { Op } = require('sequelize')
 
 // * Retrieve all Restaurant Category

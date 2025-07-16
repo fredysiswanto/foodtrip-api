@@ -2,7 +2,6 @@ const db = require('../../models')
 const {
   dataResponse,
   errResponse,
-  emptyDataResponse,
   checkAuthorization
 } = require('../../helpers/controller.helper')
 
@@ -55,7 +54,7 @@ exports.updateRestaurant = async (req, res) => {
       where: { resto_id: id }
     })
 
-    if (result == 1) {
+    if (result === 1) {
       const data = await db.Restaurant.findByPk(id, { include: ['updated'] })
       dataResponse(
         res,

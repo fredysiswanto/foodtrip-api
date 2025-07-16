@@ -1,8 +1,8 @@
 const db = require('../../models')
 const {
   dataResponse,
-  errResponse,
-  emptyDataResponse
+  errResponse
+  // emptyDataResponse
 } = require('../../helpers/controller.helper')
 const bcrypt = require('bcrypt')
 
@@ -29,7 +29,7 @@ exports.customer = async (req, res) => {
 
 // * Register Restaurant
 exports.restaurant = async (req, res) => {
-  req.body.resto_img = req.file != undefined ? req.file.filename : ''
+  req.body.resto_img = req.file !== undefined ? req.file.filename : ''
   req.body.resto_no = `RTO-${Date.now() * 2}`
 
   try {

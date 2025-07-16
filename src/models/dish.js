@@ -1,6 +1,6 @@
 'use strict'
 const { Model } = require('sequelize')
-const orderdetails = require('./orderdetails')
+// const orderdetails = require('./orderdetails')
 module.exports = (sequelize, DataTypes) => {
   class Dish extends Model {
     /**
@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate (models) {
+    static associate(models) {
       // define association here
       this.belongsTo(models.User, {
         as: 'created',
@@ -94,7 +94,7 @@ module.exports = (sequelize, DataTypes) => {
           notNull: { msg: 'Dish Image should not be null.' },
           notEmpty: { msg: 'Dish Image should not be empty.' }
         },
-        get () {
+        get() {
           const rawValue = this.getDataValue('dish_img')
           return rawValue
             ? `http://localhost:3600/public/dishes/${rawValue}`

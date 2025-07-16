@@ -2,7 +2,6 @@ const db = require('../../models')
 const {
   dataResponse,
   errResponse,
-  emptyDataResponse,
   checkAuthorization
 } = require('../../helpers/controller.helper')
 const dataTable = require('sequelize-datatables')

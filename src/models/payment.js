@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate (models) {
+    static associate(models) {
       // define association here
       this.belongsTo(models.User, {
         as: 'created',
@@ -62,7 +62,7 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: { msg: 'Payment Status should not be empty.' },
           isIn: {
             args: [['Pending', 'Paid', 'Refunded', 'Failed']],
-            msg: 'Payment Status should be \'Paid\' or \'Refunded\' only.'
+            msg: "Payment Status should be 'Paid' or 'Refunded' only."
           }
         }
       },

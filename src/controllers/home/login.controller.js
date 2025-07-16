@@ -1,11 +1,7 @@
 const db = require('../../models')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
-const {
-  dataResponse,
-  errResponse,
-  emptyDataResponse
-} = require('../../helpers/controller.helper')
+const { errResponse } = require('../../helpers/controller.helper')
 
 const generateToken = data => {
   return jwt.sign(data, process.env.TOKEN_SECRET, { expiresIn: '12h' })
@@ -24,6 +20,12 @@ exports.login = async (req, res) => {
     })
     if (data) {
       bcrypt.compare(req.body.password, data.password, (err, result) => {
+        if (err) {
+          return errResponse(
+            res,
+            'An error occurred during password comparison'
+          )
+        }
         if (result) {
           res.send({
             error: false,

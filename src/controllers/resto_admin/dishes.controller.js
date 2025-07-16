@@ -2,7 +2,7 @@ const db = require('../../models')
 const {
   dataResponse,
   errResponse,
-  emptyDataResponse,
+  // emptyDataResponse,
   checkAuthorization
 } = require('../../helpers/controller.helper')
 
@@ -12,7 +12,7 @@ exports.createDish = async (req, res) => {
     return
   }
 
-  req.body.dish_img = req.file != undefined ? req.file.filename : ''
+  req.body.dish_img = req.file !== undefined ? req.file.filename : ''
   req.body.created_by = req.user.user_id
   req.body.dish_no = `DSH-${Math.floor(Date.now() * 2.5)}`
 
@@ -77,7 +77,7 @@ exports.getDishCat = (req, res) => {
       })
     })
     .catch(err => {
-      console.log(err)
+      // console.log(err)
       res.status(500).send({
         error: true,
         data: [],

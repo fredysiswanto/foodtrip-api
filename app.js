@@ -1,3 +1,4 @@
+/* eslint-disable no-console */
 const express = require('express')
 const dotenv = require('dotenv')
 const db = require('./src/models')
@@ -50,6 +51,7 @@ const authenticateToken = (req, res, next) => {
 }
 
 // * Static files
+// eslint-disable-next-line n/no-path-concat
 app.use('/public', express.static(path.join(`${__dirname}/public/uploads/`)))
 
 // * Routes

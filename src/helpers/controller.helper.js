@@ -1,3 +1,4 @@
+/* eslint-disable camelcase */
 exports.checkAuthorization = (req, res, user_type) => {
   if (user_type == null) {
     res.status(500).send('`user_type` parameter is required')

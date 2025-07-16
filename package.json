@@ -12,7 +12,7 @@
     "lint:watch": "nodemon --exec \"pnpm run lint\" --ext js",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "1predev": "pnpm run lint:fix"
+    "predev": "pnpm run lint:fix"
   },
   "repository": {
     "type": "git",

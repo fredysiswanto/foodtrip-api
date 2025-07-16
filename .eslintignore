@@ -55,3 +55,4 @@ FoodTrip.postman_collection.json
 
 # Uploads
 uploads/
+src/helpers/ollamaHelper.js

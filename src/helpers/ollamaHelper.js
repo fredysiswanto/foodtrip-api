@@ -1,4 +1,4 @@
-async function processMessage (messageData) {
+async function processMessage(messageData) {
   try {
     // if (messageData.url && messageData.method) {
     //   return await checkApi(messageData);
@@ -25,7 +25,7 @@ async function processMessage (messageData) {
   }
 }
 
-async function checkApi ({
+async function checkApi({
   url,
   method,
   headers = {},
@@ -73,7 +73,7 @@ async function checkApi ({
 }
 
 // Fungsi validasi response berdasarkan aturan yang diberikan
-function validateResponse (response, status, validateRules) {
+function validateResponse(response, status, validateRules) {
   const result = { status: 'passed', errors: [] }
 
   // Validasi status HTTP
@@ -138,7 +138,7 @@ function validateResponse (response, status, validateRules) {
 }
 
 // Fungsi untuk mengambil nilai nested dengan aman
-function getNestedValue (obj, path) {
+function getNestedValue(obj, path) {
   return path
     .split('.')
     .reduce(

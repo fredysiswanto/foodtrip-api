@@ -158,7 +158,7 @@ exports.subQuantity = async (req, res) => {
   const cartDetails = await db.CartDetail.findByPk(cartDetailsID)
   const dishDetails = await db.Dish.findByPk(cartDetails.dish_id)
 
-  if (cartDetails.quantity == 1)
+  if (cartDetails.quantity === 1)
     errResponse(res, 'Cannot Subract Dish Quantity ')
   else {
     try {
@@ -229,7 +229,7 @@ exports.deleteCart = async (req, res) => {
 }
 
 // * Calculate Cart Total
-calcCartTotal = async (val, userID, sign) => {
+const calcCartTotal = async (val, userID, sign) => {
   const cartData = await db.Cart.findOne({ where: { created_by: userID } })
   await db.Cart.update(
     {
@@ -243,7 +243,7 @@ calcCartTotal = async (val, userID, sign) => {
 }
 
 // * Calculate Quantity
-calcQuantity = async (val, id, sign) => {
+const calcQuantity = async (val, id, sign) => {
   const data = await db.CartDetail.findByPk(id)
 
   await db.CartDetail.update(

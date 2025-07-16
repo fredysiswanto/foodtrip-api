@@ -1,5 +1,5 @@
 const db = require('../models')
-const { dataResponse, errResponse } = require('../helpers/controller.helper')
+const { errResponse } = require('../helpers/controller.helper')
 
 exports.validateCart = async (req, res, next) => {
   const userID = req.user.user_id
