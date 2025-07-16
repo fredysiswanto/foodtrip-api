@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('CartDetails', {
@@ -12,7 +12,7 @@ module.exports = {
         allowNull: false
       },
       subtotal: {
-        type: Sequelize.DECIMAL(10,2),
+        type: Sequelize.DECIMAL(10, 2),
         allowNull: false,
         comment: 'Dish(dish_price) * OrderDetails(quantity)'
       },
@@ -24,10 +24,10 @@ module.exports = {
         type: Sequelize.CHAR(36),
         allowNull: true
       }
-    });
+    })
   },
-  
+
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('CartDetails');
+    await queryInterface.dropTable('CartDetails')
   }
-};
+}

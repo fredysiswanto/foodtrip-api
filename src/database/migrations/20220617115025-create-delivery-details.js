@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('DeliveryDetails', {
@@ -42,7 +42,8 @@ module.exports = {
       date_received: {
         type: Sequelize.DATE,
         allowNull: true,
-        comment: 'Date and Time in which the order has been received by the customer.'
+        comment:
+          'Date and Time in which the order has been received by the customer.'
       },
       date_created: {
         type: Sequelize.DATE,
@@ -56,11 +57,10 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: true
       }
-    });
+    })
   },
 
-  
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('DeliveryDetails');
+    await queryInterface.dropTable('DeliveryDetails')
   }
-};
+}

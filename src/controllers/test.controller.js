@@ -1,4 +1,4 @@
-const db = require('../models');
-const helper = require('../helpers/controller.helper');
+const db = require('../models')
+const helper = require('../helpers/controller.helper')
 
-exports.testing = async (req, res) => {};
+exports.testing = async (req, res) => {}

@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Payments', {
@@ -21,7 +21,7 @@ module.exports = {
         defaultValue: 'Pending'
       },
       payment_total: {
-        type: Sequelize.DECIMAL(10,2),
+        type: Sequelize.DECIMAL(10, 2),
         allowNull: false
       },
       created_by: {
@@ -48,9 +48,9 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: true
       }
-    });
+    })
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Payments');
+    await queryInterface.dropTable('Payments')
   }
-};
+}

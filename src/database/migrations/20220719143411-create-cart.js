@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Carts', {
@@ -12,10 +12,11 @@ module.exports = {
         allowNull: true
       },
       cart_total: {
-        type: Sequelize.DECIMAL(10,2),
+        type: Sequelize.DECIMAL(10, 2),
         allowNull: false,
-        defaultValue: 0.00,
-        comment: 'Sum of the CartDetails(subtotal) of all rows with the same order_id'
+        defaultValue: 0.0,
+        comment:
+          'Sum of the CartDetails(subtotal) of all rows with the same order_id'
       },
       date_created: {
         type: Sequelize.DATE,
@@ -29,9 +30,9 @@ module.exports = {
         type: Sequelize.CHAR(36),
         allowNull: true
       }
-    });
+    })
   },
   async down(queryInterface, Sequelize) {
-    await queryInterface.dropTable('Carts');
+    await queryInterface.dropTable('Carts')
   }
-};
+}

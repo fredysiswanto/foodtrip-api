@@ -1,47 +1,61 @@
 {
-	"name": "foodtrip-api",
-	"version": "1.0.0",
-	"description": " A REST API built with Express.js and MySQL using Sequelize ORM for FoodTrip Web Application. ",
-	"main": "app.js",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1",
-		"dev": "nodemon app.js"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/polekstulod/foodtrip-api.git"
-	},
-	"keywords": [
-		"nodejs",
-		"express",
-		"sequelize",
-		"mysql2",
-		"jwt",
-		"restapi"
-	],
-	"author": "James Paul L. Tulod",
-	"license": "ISC",
-	"bugs": {
-		"url": "https://github.com/polekstulod/foodtrip-api/issues"
-	},
-	"homepage": "https://github.com/polekstulod/foodtrip-api#readme",
-	"dependencies": {
-		"@sequelize/sqlite3": "7.0.0-alpha.46",
-		"axios": "^1.10.0",
-		"bcrypt": "^6.0.0",
-		"cors": "^2.8.5",
-		"dotenv": "^17.2.0",
-		"express": "^5.1.0",
-		"jsonwebtoken": "^9.0.2",
-		"multer": "^2.0.1",
-		"mysql2": "^3.14.2",
-		"ollama": "^0.5.16",
-		"sequelize": "^6.37.7",
-		"sequelize-cli": "^6.6.3",
-		"sequelize-datatables": "^3.0.0",
-		"uuid": "^11.1.0"
-	},
-	"devDependencies": {
-		"nodemon": "^3.1.10"
-	}
+  "name": "foodtrip-api",
+  "version": "1.0.0",
+  "description": " A REST API built with Express.js and MySQL using Sequelize ORM for FoodTrip Web Application. ",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "lint:check": "eslint . --quiet",
+    "lint:watch": "nodemon --exec \"pnpm run lint\" --ext js",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "1predev": "pnpm run lint:fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/polekstulod/foodtrip-api.git"
+  },
+  "keywords": [
+    "nodejs",
+    "express",
+    "sequelize",
+    "mysql2",
+    "jwt",
+    "restapi"
+  ],
+  "author": "James Paul L. Tulod",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/polekstulod/foodtrip-api/issues"
+  },
+  "homepage": "https://github.com/polekstulod/foodtrip-api#readme",
+  "dependencies": {
+    "@sequelize/sqlite3": "7.0.0-alpha.46",
+    "axios": "^1.10.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^2.0.1",
+    "mysql2": "^3.14.2",
+    "ollama": "^0.5.16",
+    "sequelize": "^6.37.7",
+    "sequelize-cli": "^6.6.3",
+    "sequelize-datatables": "^3.0.0",
+    "uuid": "^11.1.0"
+  },
+  "devDependencies": {
+    "eslint": "8.57.0",
+    "eslint-config-prettier": "^10.1.5",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.32.0",
+    "eslint-plugin-n": "^17.21.0",
+    "eslint-plugin-promise": "^7.2.1",
+    "nodemon": "^3.1.10",
+    "prettier": "^3.6.2"
+  }
 }

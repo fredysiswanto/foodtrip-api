@@ -4,9 +4,10 @@
 
 This project is for fullfillment of requirements in subject "Application Development and Emerging Technologies". This API is used by the [FoodTrip 😋 - Food Ordering Web App🍕](https://github.com/micahvllz/foodtrip-web).
 
-## [Origin Repo](https://github.com/polekstulod/foodtrip-api) 
+## [Origin Repo](https://github.com/polekstulod/foodtrip-api)
 
-## noted 
+## noted
+
 - this repo so much help me learning testing api in few years ago and for now i am try to maintenance this repo to help another QA learning Api testing
 
 ## Developers
@@ -57,7 +58,7 @@ Start the server
 To run this project, you will need to add the following environment variables to your .env file
 
 ```env
-USE_DB=mysql 
+USE_DB=mysql
 PORT  = 3600
 NODE_ENV = development
 ALLOW_SYNC = false

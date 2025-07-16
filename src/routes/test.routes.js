@@ -1,6 +1,6 @@
-var router = require('express').Router();
+const router = require('express').Router()
 
-var testCtlr = require('../controllers/test.controller');
-router.get('/', testCtlr.testing);
+const testCtlr = require('../controllers/test.controller')
+router.get('/', testCtlr.testing)
 
-module.exports = router;
+module.exports = router

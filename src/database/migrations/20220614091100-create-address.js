@@ -1,4 +1,4 @@
-'use strict';
+'use strict'
 
 module.exports = {
   up: async (queryInterface, Sequelize) => {
@@ -16,7 +16,8 @@ module.exports = {
       address_2: {
         type: Sequelize.STRING(500),
         allowNull: true,
-        comment: 'Building, Dormitory, School or Company Name, Subdivision, Village'
+        comment:
+          'Building, Dormitory, School or Company Name, Subdivision, Village'
       },
       barangay: {
         type: Sequelize.STRING(50),
@@ -45,7 +46,8 @@ module.exports = {
       phone_number: {
         type: Sequelize.STRING(13),
         allowNull: true,
-        comment: 'Phone number must start with "09" or "+639" and only up to 13 characters'
+        comment:
+          'Phone number must start with "09" or "+639" and only up to 13 characters'
       },
       is_default: {
         type: Sequelize.TINYINT,
@@ -84,10 +86,10 @@ module.exports = {
         type: Sequelize.DATE,
         allowNull: true
       }
-    });
+    })
   },
 
   down: async (queryInterface, Sequelize) => {
-    await queryInterface.dropTable('addresses');
+    await queryInterface.dropTable('addresses')
   }
-};
+}

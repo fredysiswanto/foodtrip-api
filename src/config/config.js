@@ -1,4 +1,4 @@
-require('dotenv').config(); // Load env variables dari .env
+require('dotenv').config() // Load env variables dari .env
 
 module.exports = {
   development: {
@@ -24,4 +24,4 @@ module.exports = {
     storage: process.env.DB_STORAGE || './database.sqlite',
     logging: false
   }
-};
+}
