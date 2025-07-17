@@ -12,7 +12,12 @@
     "lint:watch": "nodemon --exec \"pnpm run lint\" --ext js",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "predev": "pnpm run lint:fix"
+    "predev": "pnpm run lint:fix",
+    "db:config": "node db-config.js",
+    "db:migrate": "npx sequelize-cli db:migrate",
+    "db:migrate:undo": "npx sequelize-cli db:migrate:undo",
+    "db:seed": "npx sequelize-cli db:seed:all",
+    "db:install-deps": "node -e \"console.log('For database dependencies installation, run:\\n- Linux/Mac: ./install-db-deps.sh\\n- Windows: ./install-db-deps.ps1')\""
   },
   "repository": {
     "type": "git",

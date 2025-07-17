@@ -48,13 +48,60 @@ const config = require(`${__dirname}/../config/config.js`)[env]
 const db = {}
 
 let sequelize
+// Konfigurasi Sequelize berdasarkan tipe database
 if (config.dialect === 'sqlite') {
   sequelize = new Sequelize({
     dialect: 'sqlite',
     storage: config.storage,
-    logging: config.logging
+    logging: config.logging,
+    pool: config.pool
+  })
+} else if (config.dialect === 'mysql') {
+  sequelize = new Sequelize(config.database, config.username, config.password, {
+    host: config.host,
+    port: config.port,
+    dialect: config.dialect,
+    logging: config.logging,
+    pool: config.pool,
+    timezone: '+07:00' // Timezone untuk Indonesia
+  })
+} else if (config.dialect === 'postgresql') {
+  sequelize = new Sequelize(config.database, config.username, config.password, {
+    host: config.host,
+    port: config.port,
+    dialect: config.dialect,
+    logging: config.logging,
+    pool: config.pool,
+    dialectOptions: {
+      ssl: process.env.DB_SSL === 'true' ? { rejectUnauthorized: false } : false
+    }
+  })
+} else if (config.dialect === 'mariadb') {
+  sequelize = new Sequelize(config.database, config.username, config.password, {
+    host: config.host,
+    port: config.port,
+    dialect: config.dialect,
+    logging: config.logging,
+    pool: config.pool,
+    timezone: '+07:00'
+  })
+} else if (config.dialect === 'mssql') {
+  sequelize = new Sequelize(config.database, config.username, config.password, {
+    host: config.host,
+    port: config.port,
+    dialect: config.dialect,
+    logging: config.logging,
+    pool: config.pool,
+    dialectOptions: {
+      options: {
+        encrypt: process.env.DB_ENCRYPT === 'true' || false,
+        trustServerCertificate:
+          process.env.DB_TRUST_SERVER_CERTIFICATE === 'true' || false
+      }
+    }
   })
 } else {
+  // Default fallback untuk database lainnya
   sequelize = new Sequelize(
     config.database,
     config.username,
