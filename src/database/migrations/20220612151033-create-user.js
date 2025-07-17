@@ -33,7 +33,8 @@ module.exports = {
       },
       email_address: {
         type: Sequelize.STRING(255),
-        allowNull: false
+        allowNull: false,
+        unique: true
       },
       phone_number: {
         type: Sequelize.STRING(13),
