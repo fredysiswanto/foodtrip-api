@@ -594,6 +594,7 @@ dish_id: uuid
 }
 ```
 
+
 ### File Constraints
 - **Max Size**: 5MB
 - **Allowed Types**: PNG, JPG, JPEG
