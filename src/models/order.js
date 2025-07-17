@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
+    static associate (models) {
       // define association here
       this.belongsTo(models.User, {
         as: 'created',
@@ -92,7 +92,7 @@ module.exports = (sequelize, DataTypes) => {
                 'Cancelled'
               ]
             ],
-            msg: "Order Status should be 'In Process', 'On the Way', 'Delivered', or 'Rejected' only."
+            msg: 'Order Status should be \'In Process\', \'On the Way\', \'Delivered\', or \'Rejected\' only.'
           }
         }
       },

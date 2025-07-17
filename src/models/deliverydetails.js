@@ -7,7 +7,7 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
+    static associate (models) {
       // define association here
       this.belongsTo(models.User, {
         as: 'created',
@@ -81,8 +81,8 @@ module.exports = (sequelize, DataTypes) => {
             args: /^(09|\+639)\d{9}$/,
             msg: 'Please enter a valid phone number.'
           },
-          notNull: { msg: "Driver's Phone Number should not be null." },
-          notEmpty: { msg: "Driver's Phone Number should not be empty." }
+          notNull: { msg: 'Driver\'s Phone Number should not be null.' },
+          notEmpty: { msg: 'Driver\'s Phone Number should not be empty.' }
         }
       },
       created_by: {

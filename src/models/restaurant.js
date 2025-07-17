@@ -8,7 +8,7 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
-    static associate(models) {
+    static associate (models) {
       // define association here
       this.belongsTo(models.User, {
         as: 'created',
@@ -117,10 +117,10 @@ module.exports = (sequelize, DataTypes) => {
         allowNull: false,
         validate: {
           isURL: {
-            msg: "Restaurant's Website must be a URL with https protocol."
+            msg: 'Restaurant\'s Website must be a URL with https protocol.'
           },
-          notNull: { msg: "Restaurant's Website should not be null." },
-          notEmpty: { msg: "Restaurant's Website should not be empty." }
+          notNull: { msg: 'Restaurant\'s Website should not be null.' },
+          notEmpty: { msg: 'Restaurant\'s Website should not be empty.' }
         }
       },
       resto_img: {
@@ -130,7 +130,7 @@ module.exports = (sequelize, DataTypes) => {
           notNull: { msg: 'Restaurant Image should not be null.' },
           notEmpty: { msg: 'Restaurant Image should not be empty.' }
         },
-        get() {
+        get () {
           const rawValue = this.getDataValue('resto_img')
           return rawValue
             ? `http://localhost:3600/public/restaurants/${rawValue}`
