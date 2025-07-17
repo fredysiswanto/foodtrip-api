@@ -214,7 +214,7 @@ module.exports = {
       {
         dish_id: uuidv4(),
         dish_no: `DSH-${Math.floor(Date.now() * 2.5) + 1}`,
-        dish_name: "Tokwa't Lechon Kawali",
+        dish_name: 'Tokwa\'t Lechon Kawali',
         dish_desc:
           'Classic dishprepared with a mix of lechon kawali and fried tofu served over a sweet and savoury sauce.',
         dish_price: '435.00',
@@ -244,7 +244,7 @@ module.exports = {
       {
         dish_id: uuidv4(),
         dish_no: `DSH-${Math.floor(Date.now() * 2.5) + 3}`,
-        dish_name: "Gerry's Stuffed Laing (Tinomok)",
+        dish_name: 'Gerry\'s Stuffed Laing (Tinomok)',
         dish_desc: 'Our fresh bounty from the sea wrapped in taro leaves',
         dish_price: '285.00',
         dish_img: 'dish_img-000000000003.png',
@@ -810,7 +810,7 @@ module.exports = {
         dish_no: `DSH-${Math.floor(Date.now() * 2.5) + 42}`,
         dish_name: 'Pandesal Regular (Pack of 12)',
         dish_desc:
-          "Pan de Manila's classic favorite, baked to perfection with its distinct flavor, brown crust and soft inside.",
+          'Pan de Manila\'s classic favorite, baked to perfection with its distinct flavor, brown crust and soft inside.',
         dish_price: '65.00',
         dish_img: 'dish_img-0000000000042.png',
         status: 'Available',
@@ -825,7 +825,7 @@ module.exports = {
         dish_no: `DSH-${Math.floor(Date.now() * 2.5) + 43}`,
         dish_name: 'Malunggay Pandesal (Pack of 12)',
         dish_desc:
-          "Pan de Manila's classic favorite pandesal blended with real malunggay bits. A healthy alternative.",
+          'Pan de Manila\'s classic favorite pandesal blended with real malunggay bits. A healthy alternative.',
         dish_price: '75.00',
         dish_img: 'dish_img-0000000000043.png',
         status: 'Available',
@@ -1017,7 +1017,7 @@ module.exports = {
         dish_no: `DSH-${Math.floor(Date.now() * 2.5) + 56}`,
         dish_name: 'Beef Mansat',
         dish_desc:
-          "A version of rice dish with dried yogurt made into a creamy and tangy sauce then topped with nuts, also considered as Jordan's national dish",
+          'A version of rice dish with dried yogurt made into a creamy and tangy sauce then topped with nuts, also considered as Jordan\'s national dish',
         dish_price: '275.00',
         dish_img: 'dish_img-0000000000056.png',
         status: 'Available',
@@ -1093,7 +1093,7 @@ module.exports = {
         dish_no: `DSH-${Math.floor(Date.now() * 2.5) + 61}`,
         dish_name: 'Matcha Latte',
         dish_desc:
-          "Rich taste of matcha with fresh Holly's milk makes for a delicious and mildy sweet drink.",
+          'Rich taste of matcha with fresh Holly\'s milk makes for a delicious and mildy sweet drink.',
         dish_price: '220.00',
         dish_img: 'dish_img-0000000000061.png',
         status: 'Available',
@@ -1197,7 +1197,7 @@ module.exports = {
         dish_no: `DSH-${Math.floor(Date.now() * 2.5) + 68}`,
         dish_name: 'Affogato',
         dish_desc:
-          "We all scream for iceream err well technically it's an Affogato (ice cream + espresso) which honestly makes it even better.",
+          'We all scream for iceream err well technically it\'s an Affogato (ice cream + espresso) which honestly makes it even better.',
         dish_price: '165.00',
         dish_img: 'dish_img-0000000000068.png',
         status: 'Available',
@@ -1269,7 +1269,7 @@ module.exports = {
       {
         dish_id: uuidv4(),
         dish_no: `DSH-${Math.floor(Date.now() * 2.5) + 73}`,
-        dish_name: "New York's Finest",
+        dish_name: 'New York\'s Finest',
         dish_desc:
           'Our best selling edge-to-edge pizza packed with 15 kinds of meat and vegetables',
         dish_price: '820.00',

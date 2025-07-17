@@ -1,5 +1,6 @@
-'use strict'
 const { v4: uuidv4 } = require('uuid')
+;('use strict')
+
 module.exports = {
   async up(queryInterface, Sequelize) {
     const restaurants = await queryInterface.sequelize.query(
@@ -32,7 +33,7 @@ module.exports = {
         city: 'Mandaluyong City',
         province: 'Metro Manila',
         region: 'NCR',
-        zip_code: '1550',
+        zip_code: '	1550',
         is_default: '1',
         resto_id: restaurantRows[12].resto_id,
         date_created: new Date(),
@@ -47,7 +48,7 @@ module.exports = {
         city: 'Quezon City',
         province: 'Metro Manila',
         region: 'NCR',
-        zip_code: '1713',
+        zip_code: '	1713',
         is_default: '1',
         resto_id: restaurantRows[13].resto_id,
         date_created: new Date(),
@@ -62,7 +63,7 @@ module.exports = {
         city: 'Makati City',
         province: 'Metro Manila',
         region: 'NCR',
-        zip_code: '1550',
+        zip_code: '	1550',
         is_default: '1',
         resto_id: restaurantRows[14].resto_id,
         date_created: new Date(),
@@ -134,9 +135,9 @@ module.exports = {
         address_1: 'A. Bonifacio Street',
         address_2: 'Ilaya',
         barangay: 'Lumangbayan',
-        city: 'Calapan City',
+        city: ' Calapan City',
         province: 'Oriental Mindoro',
-        region: 'Mimaropa',
+        region: '	Mimaropa',
         zip_code: '5208',
         is_default: '1',
         resto_id: restaurantRows[19].resto_id,

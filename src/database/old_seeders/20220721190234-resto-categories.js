@@ -291,7 +291,7 @@ module.exports = {
         city: 'Quezon City',
         province: 'NCR',
         region: 'NCR',
-        zip_code: '	1101',
+        zip_code: '1101',
         is_default: '1',
         resto_id: restaurantRows[4].resto_id,
         date_created: new Date(),

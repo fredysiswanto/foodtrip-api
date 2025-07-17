@@ -115,18 +115,18 @@ async function main() {
   const seederManager = new SeederManager()
 
   switch (command) {
-    case 'run': {
-      const success = await seederManager.runAllSeeders()
-      process.exit(success ? 0 : 1)
-    }
-    // eslint-disable-next-line no-fallthrough
-    case 'status': {
-      await seederManager.checkSeederStatus()
-      process.exit(0)
-    }
-    // eslint-disable-next-line no-fallthrough
-    default: {
-      console.log(`
+  case 'run': {
+    const success = await seederManager.runAllSeeders()
+    process.exit(success ? 0 : 1)
+  }
+  // eslint-disable-next-line no-fallthrough
+  case 'status': {
+    await seederManager.checkSeederStatus()
+    process.exit(0)
+  }
+  // eslint-disable-next-line no-fallthrough
+  default: {
+    console.log(`
 🌱 Seeder Manager
 
 Usage: node seeder-manager.js <command>
@@ -139,8 +139,8 @@ Examples:
   node seeder-manager.js run
   node seeder-manager.js status
       `)
-      process.exit(0)
-    }
+    process.exit(0)
+  }
   }
 }
 

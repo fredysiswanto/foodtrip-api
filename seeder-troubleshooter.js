@@ -306,33 +306,33 @@ async function main() {
   const troubleshooter = new SeederTroubleshooter()
 
   switch (command) {
-    case 'validate': {
-      await troubleshooter.validateData()
-      process.exit(0)
-    }
-    // eslint-disable-next-line no-fallthrough
-    case 'constraints': {
-      await troubleshooter.checkConstraints()
-      process.exit(0)
-    }
-    // eslint-disable-next-line no-fallthrough
-    case 'missing': {
-      await troubleshooter.checkMissingData()
-      process.exit(0)
-    }
-    // eslint-disable-next-line no-fallthrough
-    case 'report': {
-      await troubleshooter.generateReport()
-      process.exit(0)
-    }
-    // eslint-disable-next-line no-fallthrough
-    case 'fix': {
-      await troubleshooter.fixCommonIssues()
-      process.exit(0)
-    }
-    // eslint-disable-next-line no-fallthrough
-    default: {
-      console.log(`
+  case 'validate': {
+    await troubleshooter.validateData()
+    process.exit(0)
+  }
+  // eslint-disable-next-line no-fallthrough
+  case 'constraints': {
+    await troubleshooter.checkConstraints()
+    process.exit(0)
+  }
+  // eslint-disable-next-line no-fallthrough
+  case 'missing': {
+    await troubleshooter.checkMissingData()
+    process.exit(0)
+  }
+  // eslint-disable-next-line no-fallthrough
+  case 'report': {
+    await troubleshooter.generateReport()
+    process.exit(0)
+  }
+  // eslint-disable-next-line no-fallthrough
+  case 'fix': {
+    await troubleshooter.fixCommonIssues()
+    process.exit(0)
+  }
+  // eslint-disable-next-line no-fallthrough
+  default: {
+    console.log(`
 🔧 Seeder Troubleshooter
 
 Usage: node seeder-troubleshooter.js <command>
@@ -349,8 +349,8 @@ Examples:
   node seeder-troubleshooter.js report
   node seeder-troubleshooter.js fix
       `)
-      process.exit(0)
-    }
+    process.exit(0)
+  }
   }
 }
 

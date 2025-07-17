@@ -1,5 +1,5 @@
-'use strict'
 const { v4: uuidv4 } = require('uuid')
+;('use strict')
 
 module.exports = {
   async up(queryInterface, Sequelize) {
@@ -55,7 +55,7 @@ module.exports = {
       {
         resto_id: uuidv4(),
         resto_no: `RTO-${Date.now() * 2 + 4}`,
-        resto_name: 'Seattle Best Coffee',
+        resto_name: "Seattle's Best Coffee",
         resto_email: 'guestservice@sbc.com.ph',
         resto_phone: '+63 (2) 8 421 2043',
         resto_landline: '+63 (2) 8 421 2043',

@@ -504,48 +504,48 @@ async function main() {
   const seeder = new UniversalSeeder()
 
   switch (command) {
-    case 'users': {
-      await seeder.seedUsers()
-      process.exit(0)
-    }
-    // eslint-disable-next-line no-fallthrough
-    case 'resto-categories': {
-      await seeder.seedRestaurantCategories()
-      process.exit(0)
-    }
-    // eslint-disable-next-line no-fallthrough
-    case 'dish-categories': {
-      await seeder.seedDishCategories()
-      process.exit(0)
-    }
-    // eslint-disable-next-line no-fallthrough
-    case 'restaurants': {
-      await seeder.seedRestaurants()
-      process.exit(0)
-    }
-    // eslint-disable-next-line no-fallthrough
-    case 'dishes': {
-      await seeder.seedDishes()
-      process.exit(0)
-    }
-    // eslint-disable-next-line no-fallthrough
-    case 'all': {
-      await seeder.seedAll()
-      process.exit(0)
-    }
-    // eslint-disable-next-line no-fallthrough
-    case 'clear': {
-      await seeder.clearAll()
-      process.exit(0)
-    }
-    // eslint-disable-next-line no-fallthrough
-    case 'status': {
-      await seeder.status()
-      process.exit(0)
-    }
-    // eslint-disable-next-line no-fallthrough
-    default: {
-      console.log(`
+  case 'users': {
+    await seeder.seedUsers()
+    process.exit(0)
+  }
+  // eslint-disable-next-line no-fallthrough
+  case 'resto-categories': {
+    await seeder.seedRestaurantCategories()
+    process.exit(0)
+  }
+  // eslint-disable-next-line no-fallthrough
+  case 'dish-categories': {
+    await seeder.seedDishCategories()
+    process.exit(0)
+  }
+  // eslint-disable-next-line no-fallthrough
+  case 'restaurants': {
+    await seeder.seedRestaurants()
+    process.exit(0)
+  }
+  // eslint-disable-next-line no-fallthrough
+  case 'dishes': {
+    await seeder.seedDishes()
+    process.exit(0)
+  }
+  // eslint-disable-next-line no-fallthrough
+  case 'all': {
+    await seeder.seedAll()
+    process.exit(0)
+  }
+  // eslint-disable-next-line no-fallthrough
+  case 'clear': {
+    await seeder.clearAll()
+    process.exit(0)
+  }
+  // eslint-disable-next-line no-fallthrough
+  case 'status': {
+    await seeder.status()
+    process.exit(0)
+  }
+  // eslint-disable-next-line no-fallthrough
+  default: {
+    console.log(`
 🌱 Universal Seeder
 
 Usage: node universal-seeder.js <command>
@@ -566,8 +566,8 @@ Examples:
   node universal-seeder.js status
   node universal-seeder.js clear
       `)
-      process.exit(0)
-    }
+    process.exit(0)
+  }
   }
 }
 
