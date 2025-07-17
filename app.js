@@ -6,27 +6,50 @@ const jwt = require('jsonwebtoken')
 const path = require('path')
 const cors = require('cors')
 const { processMessage } = require('./src/helpers/ollamaHelper')
+const DatabaseHelper = require('./src/helpers/databaseHelper')
+
 // * Get config variables
 dotenv.config()
 
-// * Authenticate Database connection
-db.sequelize
-  .authenticate()
-  .then(() => {
-    console.log('Connection has been established successfully.')
-  })
-  .catch(err => {
-    console.error('Unable to connect to the database:', err)
-  })
+// * Database setup and connection
+async function initializeDatabase() {
+  try {
+    console.log('🔗 Connecting to database...')
 
-// * Sync Database tables
-if (process.env.ALLOW_SYNC === 'true') {
-  db.sequelize
-    .sync({ alter: true })
-    .then(() =>
-      console.log('Done adding/updating the database based on the Models.')
+    // * Authenticate Database connection
+    await db.sequelize.authenticate()
+    console.log('✅ Database connection established successfully.')
+
+    // * Auto setup database if needed
+    if (process.env.AUTO_SETUP_DB === 'true') {
+      console.log('🔄 Auto setup database is enabled')
+      await DatabaseHelper.autoSetupDatabase()
+    } else {
+      // * Manual sync if ALLOW_SYNC is enabled
+      if (process.env.ALLOW_SYNC === 'true') {
+        console.log('🔄 Syncing database tables...')
+        await db.sequelize.sync({ alter: true })
+        console.log('✅ Database sync completed.')
+      }
+    }
+
+    // * Display database status
+    const dbStatus = await DatabaseHelper.getDatabaseStatus()
+    console.log('📊 Database Status:')
+    console.log(`   Connected: ${dbStatus.connected ? '✅' : '❌'}`)
+    console.log(`   Tables: ${dbStatus.tablesExist ? '✅' : '❌'}`)
+    console.log(`   Migrations: ${dbStatus.migrationsExist ? '✅' : '❌'}`)
+    console.log(`   Seed Data: ${dbStatus.seedersExist ? '✅' : '❌'}`)
+  } catch (error) {
+    console.error('❌ Database initialization failed:', error.message)
+    console.error(
+      '⚠️  Server will continue but database features may not work properly'
     )
+  }
 }
+
+// * Initialize database on startup
+initializeDatabase()
 
 // * Initialize express
 const app = express()
@@ -87,6 +110,73 @@ app.post('/chat', async (req, res) => {
   } catch (error) {
     console.error('Error processing chat:', error)
     res.status(500).json({ error: 'Failed to process chat request' })
+  }
+})
+
+// * Database management endpoints
+app.get('/api/database/status', async (req, res) => {
+  try {
+    const status = await DatabaseHelper.getDatabaseStatus()
+    res.json({
+      success: true,
+      data: status
+    })
+  } catch (error) {
+    console.error('Error getting database status:', error)
+    res.status(500).json({
+      success: false,
+      error: 'Failed to get database status'
+    })
+  }
+})
+
+app.post('/api/database/migrate', async (req, res) => {
+  try {
+    const success = await DatabaseHelper.runMigrations()
+    res.json({
+      success,
+      message: success ? 'Migration completed successfully' : 'Migration failed'
+    })
+  } catch (error) {
+    console.error('Error running migrations:', error)
+    res.status(500).json({
+      success: false,
+      error: 'Failed to run migrations'
+    })
+  }
+})
+
+app.post('/api/database/seed', async (req, res) => {
+  try {
+    const success = await DatabaseHelper.runSeeders()
+    res.json({
+      success,
+      message: success ? 'Seeding completed successfully' : 'Seeding failed'
+    })
+  } catch (error) {
+    console.error('Error running seeders:', error)
+    res.status(500).json({
+      success: false,
+      error: 'Failed to run seeders'
+    })
+  }
+})
+
+app.post('/api/database/setup', async (req, res) => {
+  try {
+    const success = await DatabaseHelper.autoSetupDatabase()
+    res.json({
+      success,
+      message: success
+        ? 'Database setup completed successfully'
+        : 'Database setup failed'
+    })
+  } catch (error) {
+    console.error('Error setting up database:', error)
+    res.status(500).json({
+      success: false,
+      error: 'Failed to setup database'
+    })
   }
 })
 

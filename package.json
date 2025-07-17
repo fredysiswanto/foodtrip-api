@@ -17,7 +17,11 @@
     "db:migrate": "npx sequelize-cli db:migrate",
     "db:migrate:undo": "npx sequelize-cli db:migrate:undo",
     "db:seed": "npx sequelize-cli db:seed:all",
-    "db:install-deps": "node -e \"console.log('For database dependencies installation, run:\\n- Linux/Mac: ./install-db-deps.sh\\n- Windows: ./install-db-deps.ps1')\""
+    "db:install-deps": "node -e \"console.log('For database dependencies installation, run:\\n- Linux/Mac: ./install-db-deps.sh\\n- Windows: ./install-db-deps.ps1')\"",
+    "db:cli": "node db-cli.js",
+    "db:status": "node db-cli.js status",
+    "db:setup": "node db-cli.js setup",
+    "db:create": "node db-cli.js create"
   },
   "repository": {
     "type": "git",
@@ -41,6 +45,7 @@
     "@sequelize/sqlite3": "7.0.0-alpha.46",
     "axios": "^1.10.0",
     "bcrypt": "^6.0.0",
+    "commander": "^14.0.0",
     "cors": "^2.8.5",
     "dotenv": "^17.2.0",
     "express": "^5.1.0",
