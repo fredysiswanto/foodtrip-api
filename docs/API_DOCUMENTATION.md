@@ -1,4 +1,4 @@
-# API Documentation
+# FoodTrip API Documentation
 
 ## Overview
 This document provides comprehensive information about the API endpoints, authentication, and usage examples for the FoodTrip API project.
@@ -7,24 +7,54 @@ This document provides comprehensive information about the API endpoints, authen
 1. [Base Configuration](#base-configuration)
 2. [Authentication](#authentication)
 3. [API Endpoints](#api-endpoints)
-4. [Database Management API](#database-management-api)
-5. [Error Handling](#error-handling)
-6. [Request/Response Examples](#requestresponse-examples)
-7. [Postman Collection](#postman-collection)
+   - [Home/Public Routes](#homepublic-routes)
+   - [Customer Routes](#customer-routes)
+   - [Restaurant Admin Routes](#restaurant-admin-routes)
+   - [Admin Routes](#admin-routes)
+4. [Error Handling](#error-handling)
+5. [Request/Response Examples](#requestresponse-examples)
+6. [Rate Limiting](#rate-limiting)
+7. [File Uploads](#file-uploads)
 
 ## Base Configuration
 
 ### Server Information
-- **Base URL**: `http://localhost:3600`
-- **API Version**: v1
-- **Environment**: Development
-- **Database**: SQLite/MySQL/PostgreSQL/MariaDB
+- **Base URL**: `http://localhost:5000` (configurable via PORT env variable)
+- **API Version**: `/api/v1`
+- **Environment**: Development/Production
+- **Database**: SQLite/MySQL/PostgreSQL/MariaDB/MSSQL
 
-### Headers
+### Standard Headers
+```http
+Content-Type: application/json
+Authorization: Bearer <jwt-token>
+```
+
+### Response Format
+All API responses follow this consistent format:
+
 ```json
 {
-  "Content-Type": "application/json",
-  "Authorization": "Bearer <jwt-token>"
+  "success": true,
+  "message": "Operation description",
+  "data": {
+    // Response data
+  },
+  "meta": {
+    // Pagination or additional metadata (optional)
+  }
+}
+```
+
+### Error Response Format
+```json
+{
+  "success": false,
+  "message": "Error description",
+  "error": {
+    "code": "ERROR_CODE",
+    "details": "Detailed error information"
+  }
 }
 ```
 
