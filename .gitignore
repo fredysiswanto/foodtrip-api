@@ -106,6 +106,7 @@ dist
 # Vscode settings
 .vscode/ 
 
-db/*
+/db/*
 request/*
 ~$template.xlsx
+database.sqlite
