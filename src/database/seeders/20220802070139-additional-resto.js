@@ -1,164 +1,150 @@
+'use strict'
+const { faker } = require('@faker-js/faker')
 const { v4: uuidv4 } = require('uuid')
-;('use strict')
 
 module.exports = {
   async up(queryInterface, Sequelize) {
     const restoCat = await queryInterface.sequelize.query(
-      'SELECT restocatg_id FROM restocategories ORDER BY restocategories.restocatg_name ASC;'
+      'SELECT restocatg_id FROM restocategories ORDER BY restocategories.restocatg_name ASC;',
+      { type: Sequelize.QueryTypes.SELECT }
     )
-    const restoCatRows = restoCat[0]
+    const restoCatRows = restoCat
 
-    // * Restaurants
-    return await queryInterface.bulkInsert('Restaurants', [
+    if (restoCatRows.length === 0) {
+      throw new Error(
+        'No restaurant categories found in table restocategories.'
+      )
+    }
+
+    // Ambil existing email untuk menghindari duplikasi
+    const existingEmails = await queryInterface.sequelize.query(
+      'SELECT resto_email FROM "Restaurants";',
+      { type: Sequelize.QueryTypes.SELECT }
+    )
+    const existingEmailSet = new Set(existingEmails.map(e => e.resto_email))
+
+    const baseTimestamp = Date.now() * 2
+    const createdBy = '70ea56c6-407b-4bdf-8cf0-b4e09df50fe8'
+    const now = new Date()
+
+    const restaurantsToInsert = []
+
+    // 5 restoran tetap (static)
+    const staticRestaurants = [
       {
-        resto_id: uuidv4(),
-        resto_no: `RTO-${Date.now() * 2 + 1}`,
-        resto_name: 'Conti’s Bakeshop & Restaurant',
-        resto_email: 'ctf.contis@yahoo.com',
-        resto_phone: '09514548948',
-        resto_landline: '8921 3475',
-        resto_website: 'www.contis.ph',
-        resto_img: 'resto_img-000000000011.png',
-        restocatg_id: restoCatRows[0].restocatg_id,
-        date_created: new Date(),
-        date_updated: new Date(),
-        created_by: '70ea56c6-407b-4bdf-8cf0-b4e09df50fe8'
+        name: 'Conti’s Bakeshop & Restaurant',
+        email: 'ctf.contis@yahoo.com',
+        phone: '09514548948',
+        landline: '8921 3475',
+        website: 'www.contis.ph',
+        img: 'resto_img-000000000011.png',
+        catIndex: 0
       },
       {
-        resto_id: uuidv4(),
-        resto_no: `RTO-${Date.now() * 2 + 2}`,
-        resto_name: 'The French Baker',
-        resto_email: 'info@thefrenchbaker.com',
-        resto_phone: '09298564842',
-        resto_landline: '+63 (2) 84706210',
-        resto_website: 'thefrenchbaker.com',
-        resto_img: 'resto_img-000000000012.png',
-        restocatg_id: restoCatRows[0].restocatg_id,
-        date_created: new Date(),
-        date_updated: new Date(),
-        created_by: '70ea56c6-407b-4bdf-8cf0-b4e09df50fe8'
+        name: 'The French Baker',
+        email: 'info@thefrenchbaker.com',
+        phone: '09298564842',
+        landline: '+63 (2) 84706210',
+        website: 'thefrenchbaker.com',
+        img: 'resto_img-000000000012.png',
+        catIndex: 0
       },
       {
-        resto_id: uuidv4(),
-        resto_no: `RTO-${Date.now() * 2 + 3}`,
-        resto_name: 'Cafe France',
-        resto_email: 'cf_unave@cafefrance.net',
-        resto_phone: '+63 (2) 8 254 9788',
-        resto_landline: '+63 (2) 8 523 5555',
-        resto_website: 'www.cafefrance.net',
-        resto_img: 'resto_img-000000000013.png',
-        restocatg_id: restoCatRows[1].restocatg_id,
-        date_created: new Date(),
-        date_updated: new Date(),
-        created_by: '70ea56c6-407b-4bdf-8cf0-b4e09df50fe8'
+        name: 'Cafe France',
+        email: 'cf_unave@cafefrance.net',
+        phone: '+63 (2) 8 254 9788',
+        landline: '+63 (2) 8 523 5555',
+        website: 'www.cafefrance.net',
+        img: 'resto_img-000000000013.png',
+        catIndex: 1
       },
       {
-        resto_id: uuidv4(),
-        resto_no: `RTO-${Date.now() * 2 + 4}`,
-        resto_name: "Seattle's Best Coffee",
-        resto_email: 'guestservice@sbc.com.ph',
-        resto_phone: '+63 (2) 8 421 2043',
-        resto_landline: '+63 (2) 8 421 2043',
-        resto_website: 'seattlesbest.com.ph',
-        resto_img: 'resto_img-000000000014.png',
-        restocatg_id: restoCatRows[1].restocatg_id,
-        date_created: new Date(),
-        date_updated: new Date(),
-        created_by: '70ea56c6-407b-4bdf-8cf0-b4e09df50fe8'
+        name: "Seattle's Best Coffee",
+        email: 'guestservice@sbc.com.ph',
+        phone: '+63 (2) 8 421 2043',
+        landline: '+63 (2) 8 421 2043',
+        website: 'seattlesbest.com.ph',
+        img: 'resto_img-000000000014.png',
+        catIndex: 1
       },
       {
-        resto_id: uuidv4(),
-        resto_no: `RTO-${Date.now() * 2 + 5}`,
-        resto_name: 'Lemuria Gourmet Restaurant',
-        resto_email: 'lemuria@brumms.com.ph',
-        resto_phone: '+63 (927) 428 4202',
-        resto_landline: '93693311',
-        resto_website: 'www.lemuria.com.ph',
-        resto_img: 'resto_img-000000000015.png',
-        restocatg_id: restoCatRows[3].restocatg_id,
-        date_created: new Date(),
-        date_updated: new Date(),
-        created_by: '70ea56c6-407b-4bdf-8cf0-b4e09df50fe8'
-      },
-      {
-        resto_id: uuidv4(),
-        resto_no: `RTO-${Date.now() * 2 + 6}`,
-        resto_name: 'Ilustrado Restaurant',
-        resto_email: 'catering@ilustradorestaurant.com',
-        resto_phone: '+63 (998) 850 2735',
-        resto_landline: '+63 (2) 527 3674',
-        resto_website: 'ilustradorestaurant.com.ph',
-        resto_img: 'resto_img-000000000016.png',
-        restocatg_id: restoCatRows[3].restocatg_id,
-        date_created: new Date(),
-        date_updated: new Date(),
-        created_by: '70ea56c6-407b-4bdf-8cf0-b4e09df50fe8'
-      },
-      {
-        resto_id: uuidv4(),
-        resto_no: `RTO-${Date.now() * 2 + 7}`,
-        resto_name: 'GOGI Korean BBQ',
-        resto_email: 'gogi,philippines@gmail.com',
-        resto_phone: '+63 (916) 595 0178',
-        resto_landline: '6598-9864',
-        resto_website: 'www.facebook.com/gogi.ph',
-        resto_img: 'resto_img-000000000017.png',
-        restocatg_id: restoCatRows[4].restocatg_id,
-        date_created: new Date(),
-        date_updated: new Date(),
-        created_by: '70ea56c6-407b-4bdf-8cf0-b4e09df50fe8'
-      },
-      {
-        resto_id: uuidv4(),
-        resto_no: `RTO-${Date.now() * 2 + 8}`,
-        resto_name: 'Hwarang Korean Restaurant',
-        resto_email: 'hwarang.kr@gmail.com',
-        resto_phone: '09563278559',
-        resto_landline: '+63 (2) 8 782 9626',
-        resto_website: 'www.hwarangkreso.com',
-        resto_img: 'resto_img-000000000018.png',
-        restocatg_id: restoCatRows[4].restocatg_id,
-        date_created: new Date(),
-        date_updated: new Date(),
-        created_by: '70ea56c6-407b-4bdf-8cf0-b4e09df50fe8'
-      },
-      {
-        resto_id: uuidv4(),
-        resto_no: `RTO-${Date.now() * 2 + 9}`,
-        resto_name: 'Papa Johns Pizza',
-        resto_email: 'info@papajohns.com.ph',
-        resto_phone: '09154548668',
-        resto_landline: '+63 (2) 8 631 8689',
-        resto_website: 'papajohns.com.ph',
-        resto_img: 'resto_img-000000000019.png',
-        restocatg_id: restoCatRows[5].restocatg_id,
-        date_created: new Date(),
-        date_updated: new Date(),
-        created_by: '70ea56c6-407b-4bdf-8cf0-b4e09df50fe8'
-      },
-      {
-        resto_id: uuidv4(),
-        resto_no: `RTO-${Date.now() * 2 + 10}`,
-        resto_name: 'Pizza Hut',
-        resto_email: 'phutcsc@pizzahut.com.ph',
-        resto_phone: '09884546235',
-        resto_landline: '828-70071',
-        resto_website: 'https://www.pizzahut.com.ph/',
-        resto_img: 'resto_img-000000000020.png',
-        restocatg_id: restoCatRows[5].restocatg_id,
-        date_created: new Date(),
-        date_updated: new Date(),
-        created_by: '70ea56c6-407b-4bdf-8cf0-b4e09df50fe8'
+        name: 'Lemuria Gourmet Restaurant',
+        email: 'lemuria@brumms.com.ph',
+        phone: '+63 (927) 428 4202',
+        landline: '93693311',
+        website: 'www.lemuria.com.ph',
+        img: 'resto_img-000000000015.png',
+        catIndex: 3
       }
-    ])
+    ]
+
+    let index = 0
+    for (const resto of staticRestaurants) {
+      if (!existingEmailSet.has(resto.email)) {
+        restaurantsToInsert.push({
+          resto_id: uuidv4(),
+          resto_no: `RTO-${baseTimestamp + index}`,
+          resto_name: resto.name,
+          resto_email: resto.email,
+          resto_phone: resto.phone,
+          resto_landline: resto.landline,
+          resto_website: resto.website,
+          resto_img: resto.img,
+          restocatg_id:
+            restoCatRows[resto.catIndex % restoCatRows.length].restocatg_id,
+          date_created: now,
+          date_updated: now,
+          created_by: createdBy
+        })
+        index++
+      }
+    }
+
+    // Generate 20 dummy resto (untuk total jadi 25)
+    while (restaurantsToInsert.length < 25) {
+      const fakeEmail = faker.internet.email()
+      if (existingEmailSet.has(fakeEmail)) continue // skip if email already exists
+
+      const cat = restoCatRows[Math.floor(Math.random() * restoCatRows.length)]
+
+      restaurantsToInsert.push({
+        resto_id: uuidv4(),
+        resto_no: `RTO-${baseTimestamp + index}`,
+        resto_name: faker.company.name() + ' Restaurant',
+        resto_email: fakeEmail,
+        resto_phone: faker.phone.number('09#########'),
+        resto_landline: faker.phone.number('####-####'),
+        resto_website: faker.internet.url(),
+        resto_img: `resto_img-${faker.number.int({ min: 100000000000, max: 999999999999 })}.png`,
+        restocatg_id: cat.restocatg_id,
+        date_created: now,
+        date_updated: now,
+        created_by: createdBy
+      })
+      existingEmailSet.add(fakeEmail)
+      index++
+    }
+
+    if (restaurantsToInsert.length > 0) {
+      await queryInterface.bulkInsert('Restaurants', restaurantsToInsert)
+      console.log(`✅ Inserted ${restaurantsToInsert.length} restaurants.`)
+    } else {
+      console.log('⚠️ No new restaurants inserted.')
+    }
   },
 
   async down(queryInterface, Sequelize) {
-    /**
-     * Add commands to revert seed here.
-     *
-     * Example:
-     * await queryInterface.bulkDelete('People', null, {});
-     */
+    await queryInterface.bulkDelete('Restaurants', {
+      resto_email: {
+        [Sequelize.Op.or]: [
+          'ctf.contis@yahoo.com',
+          'info@thefrenchbaker.com',
+          'cf_unave@cafefrance.net',
+          'guestservice@sbc.com.ph',
+          'lemuria@brumms.com.ph'
+          // Dummy resto_email faker-generated tidak bisa dihapus via down()
+        ]
+      }
+    })
   }
 }
