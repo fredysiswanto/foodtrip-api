@@ -30,7 +30,7 @@ This repository serves as a learning resource for QA to improve api testing for 
 - [Peralta, Emmanuel Escarlan](https://github.com/emmanperalta4)
 - [Ulibas, Racquel Feria](https://github.com/racquelulibas)
 - [Villaruz, Micah Matorre](https://github.com/micahvllz)
-- [Fredy Siswanto](https://github.com/fredysiswanto) (QA Engginer)
+- [Fredy Siswanto](https://github.com/fredysiswanto) (QA Engineer)
 
 ## Tech Stack
 
