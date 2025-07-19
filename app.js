@@ -32,14 +32,16 @@ async function initializeDatabase() {
         console.log('✅ Database sync completed.')
       }
     }
+    if (process.env.NODE_ENV === 'development') {
+      const dbStatus = await DatabaseHelper.getDatabaseStatus()
+      console.log('📊 Database Status:')
+      console.log(`   Connected: ${dbStatus.connected ? '✅' : '❌'}`)
+      console.log(`   Tables: ${dbStatus.tablesExist ? '✅' : '❌'}`)
+      console.log(`   Migrations: ${dbStatus.migrationsExist ? '✅' : '❌'}`)
+      console.log(`   Seed Data: ${dbStatus.seedersExist ? '✅' : '❌'}`)
+    }
 
     // * Display database status
-    const dbStatus = await DatabaseHelper.getDatabaseStatus()
-    console.log('📊 Database Status:')
-    console.log(`   Connected: ${dbStatus.connected ? '✅' : '❌'}`)
-    console.log(`   Tables: ${dbStatus.tablesExist ? '✅' : '❌'}`)
-    console.log(`   Migrations: ${dbStatus.migrationsExist ? '✅' : '❌'}`)
-    console.log(`   Seed Data: ${dbStatus.seedersExist ? '✅' : '❌'}`)
   } catch (error) {
     console.error('❌ Database initialization failed:', error.message)
     console.error(
