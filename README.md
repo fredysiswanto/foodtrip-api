@@ -8,7 +8,7 @@ A comprehensive REST API built with Express.js and Sequelize ORM for food orderi
 
 ## About This Project
 
-This repository serves as a learning resource for API development and testing. It demonstrates best practices in Node.js development, database management, and API design patterns. The API is designed to be used by the [FoodTrip 😋 - Food Ordering Web App🍕](https://github.com/micahvllz/foodtrip-web).
+This repository serves as a learning resource for QA to improve api testing for simulate real project.
 
 ## Key Features
 
@@ -19,7 +19,6 @@ This repository serves as a learning resource for API development and testing. I
 - 🔧 **Database CLI Tools**: Built-in CLI for database management and seeding
 - 📊 **Admin Dashboard**: Comprehensive admin controls for platform management
 - 🖼️ **File Upload**: Image handling for restaurants and dishes
-- 🔍 **AI Integration**: Ollama integration for enhanced functionality
 - 🧪 **Comprehensive Testing**: 127+ test cases covering all endpoints with automation guidance
 
 ## Developers
@@ -31,6 +30,7 @@ This repository serves as a learning resource for API development and testing. I
 - [Peralta, Emmanuel Escarlan](https://github.com/emmanperalta4)
 - [Ulibas, Racquel Feria](https://github.com/racquelulibas)
 - [Villaruz, Micah Matorre](https://github.com/micahvllz)
+- [Fredy Siswanto](https://github.com/fredysiswanto) (QA Engginer)
 
 ## Tech Stack
 
