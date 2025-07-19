@@ -3,11 +3,11 @@ const path = require('path')
 const helpers = require('../helpers/imageHelper')
 
 const restoStorage = multer.diskStorage({
-  destination: function (req, file, cb) {
+  destination (req, file, cb) {
     cb(null, path.join(__dirname, '../../public/uploads/restaurants/'))
   },
 
-  filename: function (req, file, cb) {
+  filename (req, file, cb) {
     cb(
       null,
       `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`
@@ -16,11 +16,11 @@ const restoStorage = multer.diskStorage({
 })
 
 const dishStorage = multer.diskStorage({
-  destination: function (req, file, cb) {
+  destination (req, file, cb) {
     cb(null, path.join(__dirname, '../../public/uploads/dishes/'))
   },
 
-  filename: function (req, file, cb) {
+  filename (req, file, cb) {
     cb(
       null,
       `${file.fieldname}-${Date.now()}${path.extname(file.originalname)}`

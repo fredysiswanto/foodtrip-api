@@ -74,6 +74,7 @@ exports.verifyPassword = async (req, res) => {
 
   const match = await bcrypt.compare(password, data.password)
 
+  // eslint-disable-next-line no-unused-expressions
   match
     ? emptyDataResponse(res, 'Password is match')
     : errResponse(res, 'Password is not match')

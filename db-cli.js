@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-/* eslint-disable indent */
+ 
 
 /* eslint-disable no-console */
 

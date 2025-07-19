@@ -6,7 +6,7 @@ exports.validateCart = async (req, res, next) => {
   const dishID = req.params.dishID
 
   const cartDetails = await db.Cart.findOne({ where: { created_by: userID } })
-  if (cartDetails == null) return next()
+  if (cartDetails === null) return next()
 
   const dishDetails = await db.Dish.findByPk(dishID)
 

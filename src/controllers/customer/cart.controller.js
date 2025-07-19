@@ -40,7 +40,7 @@ exports.addToCart = async (req, res) => {
       parseFloat(dishData.dish_price) * parseFloat(req.body.quantity)
 
     // * Check if there is existing Cart
-    if (checkCart == null) {
+    if (checkCart === null) {
       const cartData = await db.Cart.create({
         resto_id: dishData.resto_id,
         created_by: userID,
@@ -98,7 +98,7 @@ exports.getCart = async (req, res) => {
         'restaurant'
       ]
     })
-    if (data == null) emptyDataResponse(res, 'Cart is empty')
+    if (data === null) emptyDataResponse(res, 'Cart is empty')
     else
       dataResponse(
         res,

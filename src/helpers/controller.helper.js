@@ -1,6 +1,6 @@
-/* eslint-disable camelcase */
+ 
 exports.checkAuthorization = (req, res, user_type) => {
-  if (user_type == null) {
+  if (user_type === null) {
     res.status(500).send('`user_type` parameter is required')
     return false
   }
@@ -14,7 +14,7 @@ exports.checkAuthorization = (req, res, user_type) => {
     return false
   }
 
-  if (!(req.user != null && req.user.user_type === user_type)) {
+  if (!(req.user !== null && req.user.user_type === user_type)) {
     res.status(401).send('Oops! You are unauthorized to view your request')
     return false
   }
@@ -29,7 +29,7 @@ exports.errResponse = (res, err) => {
 }
 
 exports.dataResponse = (res, data, withDataMsg, nullDataMsg) => {
-  if (data.length === 0 || data == null) {
+  if (data.length === 0 || data === null) {
     return res.send({
       error: false,
       data: [],

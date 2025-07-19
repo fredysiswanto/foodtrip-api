@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-console */
 const { exec } = require('child_process')
 const { promisify } = require('util')

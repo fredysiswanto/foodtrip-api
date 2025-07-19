@@ -69,6 +69,7 @@ exports.getDishCat = (req, res) => {
     where: { resto_id: restoId, dishcatg_id: catId },
     include: ['dish_category', 'restaurant']
   })
+    // eslint-disable-next-line promise/always-return
     .then(data => {
       res.send({
         error: false,
