@@ -20,6 +20,7 @@ This repository serves as a learning resource for API development and testing. I
 - 📊 **Admin Dashboard**: Comprehensive admin controls for platform management
 - 🖼️ **File Upload**: Image handling for restaurants and dishes
 - 🔍 **AI Integration**: Ollama integration for enhanced functionality
+- 🧪 **Comprehensive Testing**: 127+ test cases covering all endpoints with automation guidance
 
 ## Developers
 
@@ -93,6 +94,24 @@ This repository serves as a learning resource for API development and testing. I
 
 The API will be available at `http://localhost:5000` (or your configured PORT).
 
+## 📋 Test Coverage
+
+This project includes **127+ comprehensive test cases** covering all 85 API endpoints:
+
+| User Role | Endpoints | Test Cases | Coverage |
+|-----------|-----------|------------|----------|
+| **Home/Public** | 11 | 35+ | Authentication, Registration, Public Data |
+| **Customer** | 33 | 53+ | Cart, Orders, Address, Account Management |
+| **Restaurant Admin** | 23 | 50+ | Dish Management, Hours, Restaurant Operations |
+| **System Admin** | 18 | 34+ | User Management, System Operations |
+
+### 🎯 Quick Test Access
+- **[🔧 Setup Guide](./test-case/API_Testing_Best_Practices.md)** - Get started with API testing
+- **[📊 All Endpoints](./test-case/API_Endpoints_Overview.md)** - Complete API reference
+- **[🛒 Checkout Tests](./test-case/Customer/Checkout%20Order%20Creation.md)** - Critical user journey
+- **[🏪 Restaurant Tests](./test-case/Admin%20Resto/Dish%20Management.md)** - Core business operations
+- **[🔐 Authentication Tests](./test-case/Home/Customer%20Login.md)** - Security & access control
+
 ## 📖 Documentation
 
 ### Getting Started
@@ -106,10 +125,14 @@ The API will be available at `http://localhost:5000` (or your configured PORT).
 - **[Project Structure](./docs/PROJECT_STRUCTURE.md)** - Codebase organization guide
 - **[Seeder System Guide](./docs/SEEDER_SYSTEM_GUIDE.md)** - Data seeding documentation
 
+### Testing & Quality Assurance
+- **[Test Cases Directory](./test-case/)** - Comprehensive API test documentation
+- **[API Testing Best Practices](./test-case/API_Testing_Best_Practices.md)** - Testing guidelines and standards
+- **[Test Data Generator](./test-case/Test_Data_Generator.md)** - Setup scripts for test data
+- **[Postman Collection](./FoodTrip.postman_collection.json)** - Import for API testing
+
 ### Additional Resources
 - **[Changelog](./CHANGELOG.md)** - Version history and changes
-- **[Postman Collection](./FoodTrip.postman_collection.json)** - Import for API testing
-- **[Test Cases](./test-case/)** - Manual testing examples
 
 ## 🛠️ Available Scripts
 
@@ -128,6 +151,8 @@ The API will be available at `http://localhost:5000` (or your configured PORT).
 
 ### Testing
 - `pnpm test` - Run tests (to be implemented)
+- `pnpm run test:api` - Run API test suite (manual testing guide available)
+- `pnpm run test:coverage` - Generate test coverage report (to be implemented)
 
 ## 🗃️ Database Support
 
@@ -217,17 +242,54 @@ For complete API documentation, see [API_DOCUMENTATION.md](./docs/API_DOCUMENTAT
 
 ## 🧪 Testing
 
+This project includes comprehensive test documentation covering all API endpoints with professional test cases, security testing, and automation guidance.
+
+### Test Case Documentation
+
+The `test-case/` directory contains detailed test documentation organized by user role:
+
+#### **Home/Public API Tests** (11 endpoints)
+- **[Customer Login](./test-case/Home/Customer%20Login.md)** - 15 test cases covering authentication scenarios
+- **[Customer Registration](./test-case/Home/Customer%20Registration.md)** - 20 test cases for user registration
+- **[Find All Dish Category](./test-case/Home/Find%20All%20Dish%20Category.md)** - Existing test case
+- **[Find All Dish](./test-case/Home/Find%20All%20Dish.md)** - Existing test case
+
+#### **Customer API Tests** (33 endpoints)
+- **[Address Management](./test-case/Customer/Address%20Management.md)** - 28 test cases for CRUD operations
+- **[Checkout Order Creation](./test-case/Customer/Checkout%20Order%20Creation.md)** - 25 test cases for order processing
+
+#### **Restaurant Admin API Tests** (23 endpoints)
+- **[Dish Management](./test-case/Admin%20Resto/Dish%20Management.md)** - 30 test cases for dish CRUD operations
+- **[Create Opening Hour](./test-case/Admin%20Resto/Create%20Opening%20Hour.md)** - 20 test cases for hours management
+- **[Update Opening Hour](./test-case/Admin%20Resto/Update%20Opening%20Hour.md)** - Existing test case
+- **[Delete Opening Hour](./test-case/Admin%20Resto/Delete%20Opening%20Hour.md)** - Existing test case
+
+#### **System Admin API Tests** (18 endpoints)
+- **[User Management](./test-case/Admin/User%20Management.md)** - 34 test cases for admin operations
+
+#### **Testing Resources**
+- **[API Testing Best Practices](./test-case/API_Testing_Best_Practices.md)** - Comprehensive testing guidelines
+- **[Test Data Generator](./test-case/Test_Data_Generator.md)** - Scripts for generating test data
+- **[API Endpoints Overview](./test-case/API_Endpoints_Overview.md)** - Complete endpoint documentation
+- **[Test Cases Summary](./test-case/Test_Cases_Summary.md)** - Overview of all test cases
+
 ### Using Postman
 
 Import the provided Postman collection:
 1. Open Postman
 2. Click Import
 3. Select `FoodTrip.postman_collection.json`
-4. Configure environment variables
+4. Configure environment variables (base_url, tokens)
 
 ### Manual Testing
 
-Use the test files in the `test-case/` directory for manual API testing examples.
+Use the test files in the `test-case/` directory for manual API testing examples. Each test case includes:
+- **Request/Response examples** with realistic data
+- **Authentication setup** with Bearer tokens
+- **Validation scenarios** covering edge cases
+- **Security testing** for common vulnerabilities
+- **Performance benchmarks** and expectations
+- **Automation guidance** for CI/CD integration
 
 ### HTTP Files
 
