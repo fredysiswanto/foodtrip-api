@@ -1,7 +1,7 @@
 {
   "name": "foodtrip-api",
   "version": "1.0.0",
-  "description": " A REST API built with Express.js and MySQL using Sequelize ORM for FoodTrip Web Application. ",
+  "description": "A REST API built with Express.js and MySQL using Sequelize ORM for FoodTrip Web Application. ",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",

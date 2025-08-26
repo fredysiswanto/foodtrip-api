@@ -56,7 +56,7 @@ module.exports = {
           first_name: 'James Paul',
           middle_name: 'Lim',
           last_name: 'Tulod',
-          email_address: 'jptulod123@gmail.com',
+          email_address: 'customer@gmail.com',
           phone_number: '09451152076',
           gender: 'Male',
           user_type: 'Customer',

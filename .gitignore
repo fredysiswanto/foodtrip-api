@@ -110,3 +110,5 @@ dist
 request/*
 ~$template.xlsx
 database.sqlite
+
+foodtrip-workspace.code-workspace
