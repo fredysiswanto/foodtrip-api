@@ -44,6 +44,7 @@
   },
   "homepage": "https://github.com/polekstulod/foodtrip-api#readme",
   "dependencies": {
+    "@eslint/js": "^10.0.1",
     "@sequelize/sqlite3": "7.0.0-alpha.46",
     "axios": "^1.10.0",
     "bcrypt": "^6.0.0",
@@ -62,7 +63,7 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^9.9.0",
-    "eslint": "9.31.0",
+    "eslint": "10.2.0",
     "eslint-config-prettier": "^10.1.5",
     "eslint-config-standard": "^17.1.0",
     "eslint-plugin-import": "^2.32.0",
