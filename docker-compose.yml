@@ -6,21 +6,40 @@ services:
     container_name: foodtrip-mysql
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpassword}
-      MYSQL_DATABASE: ${DB_NAME:-foodtrip}
-      MYSQL_USER: ${DB_USER:-foodtrip}
-      MYSQL_PASSWORD: ${DB_PASS:-foodtrip}
-    ports:
-      - "${DB_PORT:-3306}:3306"
+      MYSQL_ROOT_PASSWORD: rootpassword123
+      MYSQL_DATABASE: foodtrip
+      MYSQL_USER: foodtrip
+      MYSQL_PASSWORD: foodtrip
+      MYSQL_INITDB_SKIP_TZINFO: "yes"
     volumes:
-      - mysql_data:/var/lib/mysql
-    command: --default-authentication-plugin=mysql_native_password
+      - /data/volumes/mysql/foodtrip:/var/lib/mysql
+      - ./foodtrip.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
+    command:
+      - --default-authentication-plugin=mysql_native_password
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --ssl=0
     healthcheck:
-      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      test:
+        [
+          "CMD",
+          "mysqladmin",
+          "ping",
+          "-h",
+          "localhost",
+          "-uroot",
+          "-prootpassword123",
+        ]
+      interval: 10s
       timeout: 20s
-      retries: 10
+      retries: 5
+      start_period: 60s
     networks:
-      - foodtrip-network
+      - app-network
+    cap_add:
+      - SYS_NICE
+    cap_drop:
+      - NET_RAW
 
   api:
     build:
@@ -29,34 +48,45 @@ services:
     container_name: foodtrip-api
     restart: unless-stopped
     environment:
-      NODE_ENV: ${NODE_ENV:-production}
-      PORT: ${PORT:-3000}
-      API_VERSION: ${API_VERSION:-/api/v1}
-      TOKEN_SECRET: ${TOKEN_SECRET:-your-secret-key-here}
+      NODE_ENV: production
+      PORT: 3000
+      API_VERSION: /api/v1
+      TOKEN_SECRET: your-secret-key-here
+
+      # DB config
       USE_DB: mysql
       DB_HOST: mysql
       DB_PORT: 3306
-      DB_USER: ${DB_USER:-foodtrip}
-      DB_PASS: ${DB_PASS:-foodtrip}
-      DB_NAME: ${DB_NAME:-foodtrip}
+      DB_USER: foodtrip
+      DB_PASS: foodtrip
+      DB_NAME: foodtrip
+
       AUTO_SETUP_DB: "true"
       ALLOW_SYNC: "false"
       SALT_ROUND: 10
       DB_LOGGING: "false"
-    ports:
-      - "${PORT:-3000}:${PORT:-3000}"
+      TZ: "UTC"
     volumes:
+      - /data/logs/foodtrip:/app/logs
       - ./public/uploads:/app/public/uploads
     depends_on:
       mysql:
         condition: service_healthy
     networks:
-      - foodtrip-network
-
-volumes:
-  mysql_data:
-    driver: local
+      - app-network
+    healthcheck:
+      test:
+        [
+          "CMD",
+          "node",
+          "-e",
+          "require('http').get('http://localhost:3000/api/v1/home/restaurants', (r) => {if (r.statusCode !== 200) throw new Error(r.statusCode)})",
+        ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
 
 networks:
-  foodtrip-network:
-    driver: bridge
+  app-network:
+    external: true
