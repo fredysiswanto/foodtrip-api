@@ -57,7 +57,7 @@ class DatabaseHelper {
 
       // Check if there are any migration records
       const [results] = await db.sequelize.query(
-        'SELECT COUNT(*) as count FROM "SequelizeMeta"'
+        'SELECT COUNT(*) as count FROM `SequelizeMeta`'
       )
       const migrationCount = results[0].count
 
@@ -82,7 +82,7 @@ class DatabaseHelper {
       for (const tableName of tablesToCheck) {
         try {
           const [results] = await db.sequelize.query(
-            `SELECT COUNT(*) as count FROM "${tableName}"`
+            `SELECT COUNT(*) as count FROM \`${tableName}\``
           )
           const count = results[0].count
 
