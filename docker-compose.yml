@@ -12,7 +12,7 @@ services:
       MYSQL_PASSWORD: foodtrip
       MYSQL_INITDB_SKIP_TZINFO: "yes"
     volumes:
-      - /data/volumes/mysql/foodtrip:/var/lib/mysql
+      - /tmp/data_d/dbs/mysql/foodtrip:/var/lib/mysql
       - ./foodtrip.sql:/docker-entrypoint-initdb.d/01-init.sql:ro
     command:
       - --default-authentication-plugin=mysql_native_password
@@ -67,8 +67,8 @@ services:
       DB_LOGGING: "false"
       TZ: "UTC"
     volumes:
-      - /data/logs/foodtrip:/app/logs
-      - ./public/uploads:/app/public/uploads
+      - /tmp/data_d/logs/foodtrip:/app/logs
+      - /tmp/data_d/public/uploads:/app/public/uploads
     depends_on:
       mysql:
         condition: service_healthy
