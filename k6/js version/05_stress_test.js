@@ -7,8 +7,8 @@
 
 import http from 'k6/http'
 import { check, group } from 'k6'
-import { BASE_URL, API_VERSION, COMMON_HEADERS, THRESHOLDS } from './config.js'
-import { validateResponse, parseResponse } from './helpers.js'
+import { BASE_URL, API_VERSION, COMMON_HEADERS, THRESHOLDS } from '../config.js'
+import { validateResponse, parseResponse } from '../helpers.js'
 
 export const options = {
   scenarios: {

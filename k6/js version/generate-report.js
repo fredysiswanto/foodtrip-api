@@ -79,7 +79,7 @@ function analyzeMetrics(metrics) {
 
     if (failures.length > 0) {
       const failureRate = failures.filter(v => v === 1).length / failures.length
-      analysis.failureRate = (failureRate * 100).toFixed(2) + '%'
+      analysis.failureRate = `${(failureRate * 100).toFixed(2)  }%`
     }
   }
 

@@ -14,8 +14,8 @@ import {
   BASE_URL,
   API_VERSION,
   COMMON_HEADERS
-} from './config.js'
-import { validateResponse, parseResponse } from './helpers.js'
+} from '../config.js'
+import { validateResponse, parseResponse } from '../helpers.js'
 
 const scenario = __ENV.SCENARIO || 'rampUp'
 

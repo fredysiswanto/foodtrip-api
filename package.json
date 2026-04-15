@@ -25,14 +25,14 @@
     "db:setup": "node db-cli.js setup",
     "db:create": "node db-cli.js create",
     "k6:setup": "bash k6/setup.sh",
-    "k6:smoke": "k6 run k6/01_auth_test.js --env BASE_URL=http://localhost:5000 --env SCENARIO=smoke",
-    "k6:auth": "k6 run k6/01_auth_test.js --env BASE_URL=http://localhost:5000",
-    "k6:browse": "k6 run k6/02_browse_test.js --env BASE_URL=http://localhost:5000 --env SCENARIO=rampUp",
-    "k6:customer": "k6 run k6/03_customer_operations_test.js --env BASE_URL=http://localhost:5000 --env SCENARIO=rampUp",
-    "k6:flow": "k6 run k6/04_complete_user_flow_test.js --env BASE_URL=http://localhost:5000 --env SCENARIO=spike",
-    "k6:stress": "k6 run k6/05_stress_test.js --env BASE_URL=http://localhost:5000",
-    "k6:soak": "k6 run k6/06_soak_test.js --env BASE_URL=http://localhost:5000",
-    "k6:spike": "k6 run k6/07_spike_test.js --env BASE_URL=http://localhost:5000"
+    "k6:smoke": "k6 run k6/01_auth_test.ts --env BASE_URL=http://localhost:5000 --env SCENARIO=smoke",
+    "k6:auth": "k6 run k6/01_auth_test.ts --env BASE_URL=http://localhost:5000",
+    "k6:browse": "k6 run k6/02_browse_test.ts --env BASE_URL=http://localhost:5000 --env SCENARIO=rampUp",
+    "k6:customer": "k6 run k6/03_customer_operations_test.ts --env BASE_URL=http://localhost:5000 --env SCENARIO=rampUp",
+    "k6:flow": "k6 run k6/04_complete_user_flow_test.ts --env BASE_URL=http://localhost:5000 --env SCENARIO=spike",
+    "k6:stress": "k6 run k6/05_stress_test.ts --env BASE_URL=http://localhost:5000",
+    "k6:soak": "k6 run k6/06_soak_test.ts --env BASE_URL=http://localhost:5000",
+    "k6:spike": "k6 run k6/07_spike_test.ts --env BASE_URL=http://localhost:5000"
   },
   "repository": {
     "type": "git",

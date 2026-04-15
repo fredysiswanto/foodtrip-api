@@ -14,14 +14,14 @@ import {
   BASE_URL,
   API_VERSION,
   COMMON_HEADERS
-} from './config.js'
+} from '../config.js'
 import {
   login,
   getAuthHeaders,
   validateResponse,
   parseResponse,
   generateTestName
-} from './helpers.js'
+} from '../helpers.js'
 
 const scenario = __ENV.SCENARIO || 'rampUp'
 

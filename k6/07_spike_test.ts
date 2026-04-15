@@ -3,13 +3,13 @@
  * Tests system behavior when traffic suddenly spikes
  * Useful for identifying connection pool exhaustion, queue handling, etc.
  *
- * Run: k6 run k6/07_spike_test.js --env BASE_URL=http://localhost:5000
+ * Run: k6 run k6/07_spike_test.ts --env BASE_URL=http://localhost:5000
  */
 
 import http from 'k6/http'
-import { check, group } from 'k6'
-import { BASE_URL, API_VERSION, COMMON_HEADERS } from './config.js'
-import { validateResponse } from './helpers.js'
+import { check, group, Response } from 'k6'
+import { BASE_URL, API_VERSION, COMMON_HEADERS } from './config.ts'
+import { validateResponse } from './helpers.ts'
 
 export const options = {
   scenarios: {
@@ -32,48 +32,52 @@ export const options = {
   }
 }
 
-export default function () {
-  group('Spike Test - High Load Surge', () => {
-    group('Browse Operations', () => {
-      const response = http.get(`${BASE_URL}${API_VERSION}/home/restaurants`, {
-        headers: COMMON_HEADERS
-      })
+export default function (): void {
+  group('Spike Test - High Load Surge', (): void => {
+    group('Browse Operations', (): void => {
+      const response: Response = http.get(
+        `${BASE_URL}${API_VERSION}/home/restaurants`,
+        { headers: COMMON_HEADERS }
+      )
 
       check(response, {
-        'restaurants - status OK or timeout': r =>
+        'restaurants - status OK or timeout': (r: Response) =>
           r.status === 200 || r.status === 0
       })
     })
 
-    group('Search Operations', () => {
-      const response = http.get(`${BASE_URL}${API_VERSION}/home/dishes`, {
-        headers: COMMON_HEADERS
-      })
+    group('Search Operations', (): void => {
+      const response: Response = http.get(
+        `${BASE_URL}${API_VERSION}/home/dishes`,
+        { headers: COMMON_HEADERS }
+      )
 
       check(response, {
-        'dishes - status OK or timeout': r => r.status === 200 || r.status === 0
-      })
-    })
-
-    group('Category Operations', () => {
-      const response = http.get(`${BASE_URL}${API_VERSION}/home/dish-cat`, {
-        headers: COMMON_HEADERS
-      })
-
-      check(response, {
-        'categories - status OK or timeout': r =>
+        'dishes - status OK or timeout': (r: Response) =>
           r.status === 200 || r.status === 0
       })
     })
 
-    group('Explore Operations', () => {
-      const response = http.get(
+    group('Category Operations', (): void => {
+      const response: Response = http.get(
+        `${BASE_URL}${API_VERSION}/home/dish-cat`,
+        { headers: COMMON_HEADERS }
+      )
+
+      check(response, {
+        'categories - status OK or timeout': (r: Response) =>
+          r.status === 200 || r.status === 0
+      })
+    })
+
+    group('Explore Operations', (): void => {
+      const response: Response = http.get(
         `${BASE_URL}${API_VERSION}/customer/pop-dishes`,
         { headers: COMMON_HEADERS }
       )
 
       check(response, {
-        'popular - status OK or timeout': r =>
+        'popular - status OK or timeout': (r: Response) =>
           r.status === 200 || r.status === 0
       })
     })
