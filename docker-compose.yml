@@ -6,15 +6,57 @@ services:
     container_name: foodtrip-mysql
     restart: unless-stopped
     environment:
-      MYSQL_ROOT_PASSWORD: rootpassword
-      MYSQL_DATABASE: foodtrip
-      MYSQL_USER: foodtrip
-      MYSQL_PASSWORD: foodtrip
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-rootpassword}
+      MYSQL_DATABASE: ${DB_NAME:-foodtrip}
+      MYSQL_USER: ${DB_USER:-foodtrip}
+      MYSQL_PASSWORD: ${DB_PASS:-foodtrip}
     ports:
-      - "3306:3306"
+      - "${DB_PORT:-3306}:3306"
     volumes:
       - mysql_data:/var/lib/mysql
     command: --default-authentication-plugin=mysql_native_password
+    healthcheck:
+      test: ["CMD", "mysqladmin", "ping", "-h", "localhost"]
+      timeout: 20s
+      retries: 10
+    networks:
+      - foodtrip-network
+
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: foodtrip-api
+    restart: unless-stopped
+    environment:
+      NODE_ENV: ${NODE_ENV:-production}
+      PORT: ${PORT:-3000}
+      API_VERSION: ${API_VERSION:-/api/v1}
+      TOKEN_SECRET: ${TOKEN_SECRET:-your-secret-key-here}
+      USE_DB: mysql
+      DB_HOST: mysql
+      DB_PORT: 3306
+      DB_USER: ${DB_USER:-foodtrip}
+      DB_PASS: ${DB_PASS:-foodtrip}
+      DB_NAME: ${DB_NAME:-foodtrip}
+      AUTO_SETUP_DB: "true"
+      ALLOW_SYNC: "false"
+      SALT_ROUND: 10
+      DB_LOGGING: "false"
+    ports:
+      - "${PORT:-3000}:${PORT:-3000}"
+    volumes:
+      - ./public/uploads:/app/public/uploads
+    depends_on:
+      mysql:
+        condition: service_healthy
+    networks:
+      - foodtrip-network
 
 volumes:
   mysql_data:
+    driver: local
+
+networks:
+  foodtrip-network:
+    driver: bridge

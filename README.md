@@ -297,22 +297,84 @@ Use the `request/test.http` file with VS Code REST Client extension for quick AP
 
 ## 🚀 Deployment
 
-### Using Docker (Coming Soon)
+This project includes comprehensive deployment infrastructure and automated scripts for production deployment.
+
+### 📦 Deployment Files Created
+
+All deployment files are included and ready to use:
+
+- **Dockerfile** - Optimized multi-stage Node.js container
+- **docker-compose.yml** - Complete MySQL + API stack
+- **.env.production** - Production environment configuration template
+- **DEPLOYMENT.md** - Comprehensive deployment guide (450+ lines)
+- **PRODUCTION_CHECKLIST.md** - Pre-deployment verification checklist
+- **scripts/deploy.sh** - Automated deployment script
+- **scripts/healthcheck.sh** - Health monitoring script
+- **.github/workflows/ci-cd.yml** - GitHub Actions CI/CD pipeline
+
+### Quick Start Deployment
 
 ```bash
-# Build image
-docker build -t foodtrip-api .
+# Option 1: Docker Compose (Recommended)
+cp .env.production .env
+nano .env  # Update with your settings
+chmod +x scripts/deploy.sh
+./scripts/deploy.sh deploy
 
-# Run container
-docker run -p 5000:5000 foodtrip-api
+# Option 2: Docker Only
+docker build -t foodtrip-api:latest .
+docker run -p 3000:3000 foodtrip-api:latest
+
+# Option 3: Manual Deployment
+pnpm install
+pnpm run db:setup
+npm start
 ```
 
-### Manual Deployment
+### Automated Deployment Scripts
 
-1. Set `NODE_ENV=production` in your environment
-2. Configure production database
-3. Install production dependencies: `pnpm install --prod`
-4. Start the server: `node app.js`
+```bash
+# Make scripts executable
+chmod +x scripts/deploy.sh scripts/healthcheck.sh
+
+# Deploy the application
+./scripts/deploy.sh deploy
+
+# Check application health
+./scripts/healthcheck.sh check
+
+# Monitor continuously
+./scripts/healthcheck.sh monitor
+
+# View logs
+./scripts/deploy.sh logs
+
+# Manage services
+./scripts/deploy.sh stop
+./scripts/deploy.sh restart
+./scripts/deploy.sh status
+```
+
+### For Complete Deployment Information
+
+👉 **Read [DEPLOYMENT.md](./docs/DEPLOYMENT.md)** for:
+- Detailed step-by-step instructions
+- Platform-specific deployment (AWS, Heroku, Google Cloud, DigitalOcean)
+- Environment configuration guide
+- Troubleshooting and optimization
+- Monitoring and maintenance
+
+👉 **Read [PRODUCTION_CHECKLIST.md](./docs/PRODUCTION_CHECKLIST.md)** for:
+- Pre-deployment security review
+- Performance optimization checklist
+- Database backup strategy
+- Infrastructure configuration verification
+- Post-deployment testing procedures
+
+👉 **Read [DEPLOYMENT_SUMMARY.md](./docs/DEPLOYMENT_SUMMARY.md)** for:
+- Quick overview of all deployment files
+- File structure and organization
+- Quick reference guide
 
 ## 🤝 Contributing
 

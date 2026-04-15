@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@eslint/js':
-        specifier: ^9.36.0
-        version: 9.36.0
       '@sequelize/sqlite3':
         specifier: 7.0.0-alpha.46
         version: 7.0.0-alpha.46
@@ -46,16 +43,13 @@ importers:
         version: 0.5.16
       sequelize:
         specifier: ^6.37.7
-        version: 6.37.7(mysql2@3.14.2)(sqlite3@5.1.7)
+        version: 6.37.7(mysql2@3.14.2)
       sequelize-cli:
         specifier: ^6.6.3
         version: 6.6.3
       sequelize-datatables:
         specifier: ^3.0.0
         version: 3.0.0
-      sqlite3:
-        specifier: 5.1.7
-        version: 5.1.7
       uuid:
         specifier: ^11.1.0
         version: 11.1.0
@@ -118,10 +112,6 @@ packages:
 
   '@eslint/js@9.31.0':
     resolution: {integrity: sha512-LOm5OVt7D4qiKCqoiPbA7LWmI+tbw1VbTUowBcUMgQSuM6poJufkFkYDcQpo5KfgD39TnNySV26QjOh7VFpSyw==}
-    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
-
-  '@eslint/js@9.36.0':
-    resolution: {integrity: sha512-uhCbYtYynH30iZErszX78U+nR3pJU3RHGQ57NXy5QupD4SBVwDeU8TNBy+MjMngc1UyIW9noKqsRqfjQTBU2dw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/object-schema@2.1.6':
@@ -2234,8 +2224,6 @@ snapshots:
 
   '@eslint/js@9.31.0': {}
 
-  '@eslint/js@9.36.0': {}
-
   '@eslint/object-schema@2.1.6': {}
 
   '@eslint/plugin-kit@0.3.3':
@@ -4195,7 +4183,7 @@ snapshots:
     transitivePeerDependencies:
       - supports-color
 
-  sequelize@6.37.7(mysql2@3.14.2)(sqlite3@5.1.7):
+  sequelize@6.37.7(mysql2@3.14.2):
     dependencies:
       '@types/debug': 4.1.12
       '@types/validator': 13.15.2
@@ -4215,7 +4203,6 @@ snapshots:
       wkx: 0.5.0
     optionalDependencies:
       mysql2: 3.14.2
-      sqlite3: 5.1.7
     transitivePeerDependencies:
       - supports-color
 
