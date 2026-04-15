@@ -60,6 +60,9 @@ importers:
       '@faker-js/faker':
         specifier: ^9.9.0
         version: 9.9.0
+      '@types/k6':
+        specifier: ^1.7.0
+        version: 1.7.0
       eslint:
         specifier: 10.2.0
         version: 10.2.0
@@ -226,6 +229,9 @@ packages:
 
   '@types/json5@0.0.29':
     resolution: {integrity: sha512-dRLjCWHYg4oaA77cxO64oO+7JwCwnIzkZPdrrC71jQmQtlhM556pwKo5bUzqvZndkVbeFLIIi+9TC40JNF5hNQ==}
+
+  '@types/k6@1.7.0':
+    resolution: {integrity: sha512-oL4mckVcOPIA2HUrCVj3aQXCJgCqsQe35Uc4fRTffmrQuR24v92GJImnagqUaRnC1TQVJFx85o3aHQPP+0bxpg==}
 
   '@types/lodash@4.17.20':
     resolution: {integrity: sha512-H3MHACvFUEiujabxhaI/ImO6gUrd8oOurg7LQtS7mbwIXA/cUqWrvBsaeJ23aZEPk1TAYkurjfMbSELfoCXlGA==}
@@ -2321,6 +2327,8 @@ snapshots:
   '@types/json-schema@7.0.15': {}
 
   '@types/json5@0.0.29': {}
+
+  '@types/k6@1.7.0': {}
 
   '@types/lodash@4.17.20': {}
 
