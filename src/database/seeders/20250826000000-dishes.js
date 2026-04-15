@@ -6,7 +6,7 @@ module.exports = {
     try {
       // Check if dishes already exist
       const existingDishes = await queryInterface.sequelize.query(
-        'SELECT COUNT(*) as count FROM "Dishes"',
+        'SELECT COUNT(*) as count FROM `Dishes`',
         { type: Sequelize.QueryTypes.SELECT }
       )
 
@@ -19,13 +19,13 @@ module.exports = {
 
       // Get existing dish categories
       const dishCategories = await queryInterface.sequelize.query(
-        'SELECT dishcatg_id FROM "DishCategories" ORDER BY dishcatg_name ASC',
+        'SELECT dishcatg_id FROM `DishCategories` ORDER BY dishcatg_name ASC',
         { type: Sequelize.QueryTypes.SELECT }
       )
 
       // Get existing restaurants
       const restaurants = await queryInterface.sequelize.query(
-        'SELECT resto_id FROM "Restaurants" ORDER BY resto_name ASC',
+        'SELECT resto_id FROM `Restaurants` ORDER BY resto_name ASC',
         { type: Sequelize.QueryTypes.SELECT }
       )
 

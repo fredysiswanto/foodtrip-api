@@ -4,9 +4,10 @@ const { v4: uuidv4 } = require('uuid')
 module.exports = {
   async up(queryInterface, Sequelize) {
     const restaurants = await queryInterface.sequelize.query(
-      'SELECT resto_id FROM restaurants ORDER BY restaurants.resto_no ASC; '
+      'SELECT resto_id FROM `Restaurants` ORDER BY `Restaurants`.resto_no ASC; ',
+      { type: Sequelize.QueryTypes.SELECT }
     )
-    const restaurantRows = restaurants[0]
+    const restaurantRows = restaurants
 
     // * Restaurant Opening Hours
     return await queryInterface.bulkInsert('OpeningHours', [

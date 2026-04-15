@@ -5,7 +5,7 @@ const { v4: uuidv4 } = require('uuid')
 module.exports = {
   async up(queryInterface, Sequelize) {
     const existingUsers = await queryInterface.sequelize.query(
-      `SELECT email_address FROM "Users"`, // atau pakai backtick `Users` jika MySQL
+      'SELECT email_address FROM `Users`', // atau pakai backtick `Users` jika MySQL
       { type: Sequelize.QueryTypes.SELECT }
     )
 

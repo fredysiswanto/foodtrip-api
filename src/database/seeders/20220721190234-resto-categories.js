@@ -7,7 +7,7 @@ module.exports = {
     try {
       // Check if resto categories already exist
       const existingCategories = await queryInterface.sequelize.query(
-        'SELECT COUNT(*) as count FROM "RestoCategories"',
+        'SELECT COUNT(*) as count FROM `RestoCategories`',
         { type: Sequelize.QueryTypes.SELECT }
       )
 

@@ -5,7 +5,7 @@ const { v4: uuidv4 } = require('uuid')
 module.exports = {
   async up(queryInterface, Sequelize) {
     const restoCat = await queryInterface.sequelize.query(
-      'SELECT restocatg_id FROM restocategories ORDER BY restocategories.restocatg_name ASC;',
+      'SELECT restocatg_id FROM `RestoCategories` ORDER BY `RestoCategories`.restocatg_name ASC;',
       { type: Sequelize.QueryTypes.SELECT }
     )
     const restoCatRows = restoCat
@@ -18,7 +18,7 @@ module.exports = {
 
     // Ambil existing email untuk menghindari duplikasi
     const existingEmails = await queryInterface.sequelize.query(
-      'SELECT resto_email FROM "Restaurants";',
+      'SELECT resto_email FROM `Restaurants`;',
       { type: Sequelize.QueryTypes.SELECT }
     )
     const existingEmailSet = new Set(existingEmails.map(e => e.resto_email))
@@ -32,10 +32,10 @@ module.exports = {
     // 5 restoran tetap (static)
     const staticRestaurants = [
       {
-        name: 'Conti’s Bakeshop & Restaurant',
+        name: "Conti's Bakeshop & Restaurant",
         email: 'ctf.contis@yahoo.com',
         phone: '09514548948',
-        landline: '8921 3475',
+        landline: '89213475',
         website: 'www.contis.ph',
         img: 'resto_img-000000000011.png',
         catIndex: 0
@@ -44,7 +44,7 @@ module.exports = {
         name: 'The French Baker',
         email: 'info@thefrenchbaker.com',
         phone: '09298564842',
-        landline: '+63 (2) 84706210',
+        landline: '84706210',
         website: 'thefrenchbaker.com',
         img: 'resto_img-000000000012.png',
         catIndex: 0
@@ -52,8 +52,8 @@ module.exports = {
       {
         name: 'Cafe France',
         email: 'cf_unave@cafefrance.net',
-        phone: '+63 (2) 8 254 9788',
-        landline: '+63 (2) 8 523 5555',
+        phone: '09082549788',
+        landline: '85235555',
         website: 'www.cafefrance.net',
         img: 'resto_img-000000000013.png',
         catIndex: 1
@@ -61,8 +61,8 @@ module.exports = {
       {
         name: "Seattle's Best Coffee",
         email: 'guestservice@sbc.com.ph',
-        phone: '+63 (2) 8 421 2043',
-        landline: '+63 (2) 8 421 2043',
+        phone: '09084212043',
+        landline: '84212043',
         website: 'seattlesbest.com.ph',
         img: 'resto_img-000000000014.png',
         catIndex: 1
@@ -70,7 +70,7 @@ module.exports = {
       {
         name: 'Lemuria Gourmet Restaurant',
         email: 'lemuria@brumms.com.ph',
-        phone: '+63 (927) 428 4202',
+        phone: '09274284202',
         landline: '93693311',
         website: 'www.lemuria.com.ph',
         img: 'resto_img-000000000015.png',
@@ -112,8 +112,11 @@ module.exports = {
         resto_no: `RTO-${baseTimestamp + index}`,
         resto_name: faker.company.name() + ' Restaurant',
         resto_email: fakeEmail,
-        resto_phone: faker.phone.number('09#########'),
-        resto_landline: faker.phone.number('####-####'),
+        resto_phone:
+          '09' + faker.number.int({ min: 100000000, max: 999999999 }),
+        resto_landline: faker.number
+          .int({ min: 10000000, max: 99999999 })
+          .toString(),
         resto_website: faker.internet.url(),
         resto_img: `resto_img-${faker.number.int({ min: 100000000000, max: 999999999999 })}.png`,
         restocatg_id: cat.restocatg_id,

@@ -8,7 +8,7 @@ module.exports = {
     try {
       // Check if users already exist
       const existingUsers = await queryInterface.sequelize.query(
-        'SELECT COUNT(*) as count FROM "Users"',
+        'SELECT COUNT(*) as count FROM `Users`',
         { type: Sequelize.QueryTypes.SELECT }
       )
 

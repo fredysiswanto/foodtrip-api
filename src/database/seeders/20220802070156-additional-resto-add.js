@@ -4,7 +4,7 @@ const { v4: uuidv4 } = require('uuid')
 module.exports = {
   async up(queryInterface, Sequelize) {
     const restaurants = await queryInterface.sequelize.query(
-      'SELECT resto_id FROM restaurants ORDER BY restaurants.resto_no ASC;',
+      'SELECT resto_id FROM `Restaurants` ORDER BY `Restaurants`.resto_no ASC;',
       { type: Sequelize.QueryTypes.SELECT }
     )
 
@@ -128,7 +128,7 @@ module.exports = {
 
       // Cek apakah address_1 & resto_id sudah ada
       const exists = await queryInterface.sequelize.query(
-        'SELECT 1 FROM "Addresses" WHERE address_1 = :address_1 AND resto_id = :resto_id LIMIT 1',
+        'SELECT 1 FROM `Addresses` WHERE address_1 = :address_1 AND resto_id = :resto_id LIMIT 1',
         {
           replacements: {
             address_1: raw.address_1,
