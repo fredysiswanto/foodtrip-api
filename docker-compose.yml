@@ -5,6 +5,8 @@ services:
     image: mysql:8.0
     container_name: foodtrip-mysql
     restart: unless-stopped
+    ports:
+      - "3306:3306"
     environment:
       MYSQL_ROOT_PASSWORD: rootpassword123
       MYSQL_DATABASE: foodtrip
@@ -47,6 +49,8 @@ services:
       dockerfile: Dockerfile
     container_name: foodtrip-api
     restart: unless-stopped
+    ports:
+      - "3000:3000"
     environment:
       NODE_ENV: production
       PORT: 3000
