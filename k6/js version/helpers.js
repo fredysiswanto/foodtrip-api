@@ -3,7 +3,7 @@
 
 import http from 'k6/http'
 import { check } from 'k6'
-import { BASE_URL, API_VERSION, TEST_USERS, COMMON_HEADERS } from '../config.js'
+import { BASE_URL, API_VERSION, TEST_USERS, COMMON_HEADERS } from './config.js'
 
 /**
  * Login to the application and return the JWT token

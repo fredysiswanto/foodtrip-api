@@ -15,8 +15,8 @@ import {
   API_VERSION,
   TEST_USERS,
   COMMON_HEADERS
-} from './config'
-import { login, validateResponse } from './helpers'
+} from './config.ts'
+import { login, validateResponse } from './helpers.ts'
 
 // Use smoke test scenario by default, can be overridden
 const scenario: string = __ENV.SCENARIO || 'smoke'

@@ -13,6 +13,7 @@
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "allowJs": true,
+
     "ignoreDeprecations": "6.0"
   },
   "include": ["*.ts"],

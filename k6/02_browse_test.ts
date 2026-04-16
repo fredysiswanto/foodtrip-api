@@ -7,7 +7,8 @@
  */
 
 import http from 'k6/http'
-import { check, group, Response } from 'k6'
+import { check, group } from 'k6'
+import { Response } from 'k6/http'
 import {
   SCENARIOS,
   THRESHOLDS,

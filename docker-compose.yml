@@ -51,6 +51,9 @@ services:
     restart: unless-stopped
     ports:
       - "3000:3000"
+    mem_reservation: 256m
+    mem_limit: 512m
+    cpus: 0.5
     environment:
       NODE_ENV: production
       PORT: 3000

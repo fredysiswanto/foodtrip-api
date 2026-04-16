@@ -24,7 +24,7 @@ interface Scenario {
   duration?: string
   startVUs?: number
   stages?: ScenarioStage[]
-  description: string
+  // description: string
 }
 
 interface Scenarios {
@@ -60,8 +60,8 @@ export const SCENARIOS: Scenarios = {
   smoke: {
     executor: 'constant-vus',
     vus: 1,
-    duration: '30s',
-    description: 'Smoke test to verify API is working'
+    duration: '30s'
+    // description: 'Smoke test to verify API is working'
   },
 
   // Ramp Up - Gradually increase load
@@ -72,8 +72,8 @@ export const SCENARIOS: Scenarios = {
       { duration: '2m', target: 10 }, // Ramp up to 10 users
       { duration: '3m', target: 20 }, // Ramp up to 20 users
       { duration: '2m', target: 0 } // Ramp down
-    ],
-    description: 'Ramp-up test to gradually increase load'
+    ]
+    // description: 'Ramp-up test to gradually increase load'
   },
 
   // Spike Test - Sudden spike in traffic
@@ -85,16 +85,16 @@ export const SCENARIOS: Scenarios = {
       { duration: '1m', target: 100 }, // Spike to 100 users
       { duration: '30s', target: 10 }, // Return to 10 users
       { duration: '20s', target: 0 } // Ramp down
-    ],
-    description: 'Spike test to check system behavior under sudden load'
+    ]
+    // description: 'Spike test to check system behavior under sudden load'
   },
 
   // Soak Test - Long duration at constant load
   soak: {
     executor: 'constant-vus',
     vus: 20,
-    duration: '10m',
-    description: 'Soak test with constant load for extended period'
+    duration: '10m'
+    // description: 'Soak test with constant load for extended period'
   },
 
   // Stress Test - Increase load until system breaks
@@ -107,8 +107,8 @@ export const SCENARIOS: Scenarios = {
       { duration: '5m', target: 200 }, // Ramp up to 200
       { duration: '5m', target: 300 }, // Continue increasing
       { duration: '2m', target: 0 } // Ramp down
-    ],
-    description: 'Stress test to find breaking point'
+    ]
+    // description: 'Stress test to find breaking point'
   },
 
   // Peak Load - Simulate peak hour traffic
@@ -119,8 +119,8 @@ export const SCENARIOS: Scenarios = {
       { duration: '2m', target: 50 }, // Build up to peak
       { duration: '5m', target: 50 }, // Maintain peak
       { duration: '2m', target: 0 } // Cool down
-    ],
-    description: 'Peak load test simulating high traffic period'
+    ]
+    // description: 'Peak load test simulating high traffic period'
   }
 }
 

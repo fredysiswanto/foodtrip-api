@@ -2,7 +2,8 @@
 // Common utilities for load testing
 
 import http from 'k6/http'
-import { check, Response } from 'k6'
+import { check } from 'k6'
+import { Response } from 'k6/http'
 import { BASE_URL, API_VERSION, TEST_USERS, COMMON_HEADERS } from './config.ts'
 
 interface LoginResponse {
