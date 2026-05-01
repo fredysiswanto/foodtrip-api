@@ -17,8 +17,8 @@ module.exports = {
 
       name: 'foodtrip-api',
       script: './app.js',
-      exec_mode: 'cluster',
-      instances: 'max',
+      exec_mode: 'fork',
+      instances: '1',
       watch: false,
       ignore_watch: ['node_modules', 'public/uploads', 'logs', '.git'],
       max_memory_restart: '500M',
