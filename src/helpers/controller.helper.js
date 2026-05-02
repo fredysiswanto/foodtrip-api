@@ -1,4 +1,3 @@
- 
 exports.checkAuthorization = (req, res, user_type) => {
   if (user_type === null) {
     res.status(500).send('`user_type` parameter is required')
@@ -22,9 +21,24 @@ exports.checkAuthorization = (req, res, user_type) => {
 }
 
 exports.errResponse = (res, err) => {
+  let errorMessage = `${err}`
+
+  // Remove error type prefix (e.g., "SequelizeUniqueConstraintError: Message" → "Message")
+  if (errorMessage.includes(': ')) {
+    errorMessage = errorMessage.split(': ').slice(1).join(': ')
+  }
+
+  // Handle foreign key constraint errors
+  if (errorMessage.includes('foreign key constraint fails')) {
+    // Extract the field name from error message
+    const fieldMatch = errorMessage.match(/FOREIGN KEY \(`(\w+)`\)/)
+    const fieldName = fieldMatch ? fieldMatch[1] : 'related record'
+    errorMessage = `The ${fieldName} provided does not exist or is invalid. Please check and try again.`
+  }
+
   return res.status(500).send({
     error: true,
-    message: `${err}`
+    message: errorMessage
   })
 }
 

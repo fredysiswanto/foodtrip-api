@@ -108,7 +108,8 @@ module.exports = [
       '**/*.min.js',
       'src/database/migrations/**',
       'src/database/seeders/**',
-      'src/helpers/ollamaHelper.js'
+      'src/helpers/ollamaHelper.js',
+      'k6/**'
     ]
   }
 ]

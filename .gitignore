@@ -112,3 +112,5 @@ request/*
 database.sqlite
 
 foodtrip-workspace.code-workspace
+
+public/uploads/*

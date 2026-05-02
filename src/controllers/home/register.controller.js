@@ -33,6 +33,26 @@ exports.restaurant = async (req, res) => {
   req.body.resto_no = `RTO-${Date.now() * 2}`
 
   try {
+    // Validate that restocatg_id is provided
+    if (!req.body.restocatg_id) {
+      return res.status(400).send({
+        error: true,
+        message: 'Restaurant Category ID is required.'
+      })
+    }
+
+    // Validate that the restaurant category exists
+    const categoryExists = await db.RestoCategory.findByPk(
+      req.body.restocatg_id
+    )
+    if (!categoryExists) {
+      return res.status(400).send({
+        error: true,
+        message:
+          'The selected Restaurant Category does not exist. Please choose a valid category.'
+      })
+    }
+
     const data = await db.Restaurant.create(req.body)
     dataResponse(
       res,
