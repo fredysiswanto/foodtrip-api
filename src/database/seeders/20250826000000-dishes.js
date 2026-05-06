@@ -57,7 +57,7 @@ module.exports = {
           dish_desc:
             'Classic Italian pizza with fresh tomatoes, mozzarella cheese, and basil leaves on a thin crust.',
           dish_price: 15.99,
-          dish_img: 'margherita_pizza.jpg',
+          dish_img: 'dish_img-000000000001.png',
           status: 'Available',
           dishcatg_id:
             dishCategories[Math.floor(Math.random() * dishCategories.length)]
@@ -76,7 +76,7 @@ module.exports = {
           dish_desc:
             'Tender grilled chicken breast seasoned with herbs and spices, served with steamed vegetables.',
           dish_price: 18.5,
-          dish_img: 'grilled_chicken_breast.jpg',
+          dish_img: 'dish_img-000000000002.png',
           status: 'Available',
           dishcatg_id:
             dishCategories[Math.floor(Math.random() * dishCategories.length)]
@@ -95,7 +95,7 @@ module.exports = {
           dish_desc:
             'Fresh romaine lettuce tossed with Caesar dressing, croutons, and parmesan cheese.',
           dish_price: 12.75,
-          dish_img: 'caesar_salad.jpg',
+          dish_img: 'dish_img-000000000003.png',
           status: 'Available',
           dishcatg_id:
             dishCategories[Math.floor(Math.random() * dishCategories.length)]
@@ -114,7 +114,7 @@ module.exports = {
           dish_desc:
             'Juicy beef patty with lettuce, tomato, onion, cheese, and special sauce on a sesame bun.',
           dish_price: 16.25,
-          dish_img: 'beef_burger_deluxe.jpg',
+          dish_img: 'dish_img-000000000004.png',
           status: 'Available',
           dishcatg_id:
             dishCategories[Math.floor(Math.random() * dishCategories.length)]
@@ -133,7 +133,7 @@ module.exports = {
           dish_desc:
             'Creamy pasta with bacon, eggs, parmesan cheese, and black pepper.',
           dish_price: 14.99,
-          dish_img: 'spaghetti_carbonara.jpg',
+          dish_img: 'dish_img-000000000005.png',
           status: 'Available',
           dishcatg_id:
             dishCategories[Math.floor(Math.random() * dishCategories.length)]
@@ -152,7 +152,7 @@ module.exports = {
           dish_desc:
             'Beer-battered fish fillet served with crispy fries and tartar sauce.',
           dish_price: 17.5,
-          dish_img: 'fish_and_chips.jpg',
+          dish_img: 'dish_img-000000000006.png',
           status: 'Available',
           dishcatg_id:
             dishCategories[Math.floor(Math.random() * dishCategories.length)]
@@ -171,7 +171,7 @@ module.exports = {
           dish_desc:
             'Warm chocolate cake with a molten chocolate center, served with vanilla ice cream.',
           dish_price: 8.99,
-          dish_img: 'chocolate_lava_cake.jpg',
+          dish_img: 'dish_img-000000000007.png',
           status: 'Available',
           dishcatg_id:
             dishCategories[Math.floor(Math.random() * dishCategories.length)]
@@ -190,7 +190,7 @@ module.exports = {
           dish_desc:
             'Spicy green curry with coconut milk, vegetables, and your choice of meat.',
           dish_price: 19.25,
-          dish_img: 'thai_green_curry.jpg',
+          dish_img: 'dish_img-000000000008.png',
           status: 'Available',
           dishcatg_id:
             dishCategories[Math.floor(Math.random() * dishCategories.length)]
@@ -209,7 +209,7 @@ module.exports = {
           dish_desc:
             'Creamy Italian rice dish with mixed mushrooms and parmesan cheese.',
           dish_price: 16.75,
-          dish_img: 'mushroom_risotto.jpg',
+          dish_img: 'dish_img-000000000009.png',
           status: 'Available',
           dishcatg_id:
             dishCategories[Math.floor(Math.random() * dishCategories.length)]
@@ -228,7 +228,7 @@ module.exports = {
           dish_desc:
             'Tender pork ribs glazed with barbecue sauce, served with coleslaw and fries.',
           dish_price: 22.99,
-          dish_img: 'bbq_ribs.jpg',
+          dish_img: 'dish_img-000000000010.png',
           status: 'Available',
           dishcatg_id:
             dishCategories[Math.floor(Math.random() * dishCategories.length)]
@@ -247,7 +247,7 @@ module.exports = {
           dish_desc:
             'Fresh raw tuna slices served with wasabi, pickled ginger, and soy sauce.',
           dish_price: 24.5,
-          dish_img: 'tuna_sashimi.jpg',
+          dish_img: 'dish_img-000000000011.png',
           status: 'Available',
           dishcatg_id:
             dishCategories[Math.floor(Math.random() * dishCategories.length)]
@@ -266,7 +266,7 @@ module.exports = {
           dish_desc:
             'Fresh mixed vegetables stir-fried with garlic, ginger, and soy sauce.',
           dish_price: 13.25,
-          dish_img: 'vegetable_stir_fry.jpg',
+          dish_img: 'dish_img-000000000012.png',
           status: 'Available',
           dishcatg_id:
             dishCategories[Math.floor(Math.random() * dishCategories.length)]
@@ -285,7 +285,7 @@ module.exports = {
           dish_desc:
             'Three soft tacos filled with seasoned chicken, lettuce, tomato, and cheese.',
           dish_price: 11.99,
-          dish_img: 'chicken_tacos.jpg',
+          dish_img: 'dish_img-000000000013.png',
           status: 'Available',
           dishcatg_id:
             dishCategories[Math.floor(Math.random() * dishCategories.length)]
@@ -304,7 +304,7 @@ module.exports = {
           dish_desc:
             'Grilled lamb chops with rosemary and garlic, served with roasted potatoes.',
           dish_price: 28.75,
-          dish_img: 'lamb_chops.jpg',
+          dish_img: 'dish_img-000000000014.png',
           status: 'Available',
           dishcatg_id:
             dishCategories[Math.floor(Math.random() * dishCategories.length)]
@@ -323,7 +323,7 @@ module.exports = {
           dish_desc:
             'Stack of fluffy pancakes served with butter and maple syrup.',
           dish_price: 9.5,
-          dish_img: 'pancakes_syrup.jpg',
+          dish_img: 'dish_img-000000000015.png',
           status: 'Available',
           dishcatg_id:
             dishCategories[Math.floor(Math.random() * dishCategories.length)]
@@ -342,7 +342,7 @@ module.exports = {
           dish_desc:
             'Refreshing cold brew coffee served over ice with cream and sugar.',
           dish_price: 4.75,
-          dish_img: 'iced_coffee.jpg',
+          dish_img: 'dish_img-000000000016.png',
           status: 'Available',
           dishcatg_id:
             dishCategories[Math.floor(Math.random() * dishCategories.length)]
@@ -361,7 +361,7 @@ module.exports = {
           dish_desc:
             'Traditional Spanish rice dish with mixed seafood, saffron, and vegetables.',
           dish_price: 26.99,
-          dish_img: 'seafood_paella.jpg',
+          dish_img: 'dish_img-000000000017.png',
           status: 'Available',
           dishcatg_id:
             dishCategories[Math.floor(Math.random() * dishCategories.length)]
@@ -380,7 +380,7 @@ module.exports = {
           dish_desc:
             'Spicy chicken wings served with blue cheese dip and celery sticks.',
           dish_price: 13.99,
-          dish_img: 'buffalo_wings.jpg',
+          dish_img: 'dish_img-000000000020.png',
           status: 'Available',
           dishcatg_id:
             dishCategories[Math.floor(Math.random() * dishCategories.length)]
@@ -399,7 +399,7 @@ module.exports = {
           dish_desc:
             'Classic Italian dessert with coffee-soaked ladyfingers and mascarpone cream.',
           dish_price: 7.5,
-          dish_img: 'tiramisu.jpg',
+          dish_img: 'dish_img-000000000018.png',
           status: 'Available',
           dishcatg_id:
             dishCategories[Math.floor(Math.random() * dishCategories.length)]
@@ -418,7 +418,7 @@ module.exports = {
           dish_desc:
             'Traditional Filipino dish with pork braised in vinegar, soy sauce, and spices.',
           dish_price: 15.25,
-          dish_img: 'pork_adobo.jpg',
+          dish_img: 'dish_img-000000000019.png',
           status: 'Available',
           dishcatg_id:
             dishCategories[Math.floor(Math.random() * dishCategories.length)]

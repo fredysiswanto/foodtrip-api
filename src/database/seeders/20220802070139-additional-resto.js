@@ -118,7 +118,7 @@ module.exports = {
           .int({ min: 10000000, max: 99999999 })
           .toString(),
         resto_website: faker.internet.url(),
-        resto_img: `resto_img-${faker.number.int({ min: 100000000000, max: 999999999999 })}.png`,
+        resto_img: `resto_img-0000000000${faker.number.int({ min: 10, max: 20 })}.png`,
         restocatg_id: cat.restocatg_id,
         date_created: now,
         date_updated: now,
